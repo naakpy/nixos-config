@@ -7,14 +7,8 @@ APPIMAGE_URL="https://downloader.cursor.sh/linux/appImage/x64"
 echo "Fetching new sha256 hash for Cursor AppImage..."
 NEW_HASH=$(nix-prefetch-url $APPIMAGE_URL)
 
-# Check if nix-prefetch-url was successful
-if [ $? -ne 0 ]; then
-  echo "Failed to fetch the AppImage. Exiting."
-  exit 1
-fi
-
-# Define the path to the Nix file
-NIX_FILE="./cursor.nix" # Adjust the path as needed
+# Use the absolute path to the cursor.nix file
+NIX_FILE="/home/kaan/nixos-config/modules/custom/cursor/cursor.nix"
 
 # Extract the current sha256 hash from the Nix file
 CURRENT_HASH=$(grep -oP 'sha256 = "\K[^"]+' $NIX_FILE)

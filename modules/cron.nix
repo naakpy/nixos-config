@@ -15,7 +15,7 @@
       description = "Run update-cursor.sh to update Cursor AppImage";
       serviceConfig.User = "kaan";
       # Now pkgs is passed explicitly, so this will work
-      serviceConfig.ExecStart = "${pkgs.bash}/bin/bash /home/kaan/nixos-config/custom/cursor/update-cursor.sh";
+      serviceConfig.ExecStart = "${pkgs.bash}/bin/bash ~/nixos-config/modules/custom/cursor/update-cursor.sh";
       serviceConfig.Type = "oneshot";
     };
   };

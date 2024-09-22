@@ -4,7 +4,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (callPackage ./custom/cursor.nix {})
+    (callPackage ./custom/cursor/cursor.nix {})
     exegol
     prismlauncher
     dbeaver-bin

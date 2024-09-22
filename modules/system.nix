@@ -7,6 +7,7 @@
     ./fonts.nix
     ./steam.nix
     ./waybar.nix
+    ./cron.nix  
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -51,6 +52,8 @@
   
   };
   programs.hyprland.xwayland.enable = true;
+
+  environment.systemPackages = [
+    pkgs.bash
+  ];
 }
-
-

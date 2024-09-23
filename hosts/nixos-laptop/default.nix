@@ -16,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
-
+  boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
   networking.hostName = "nixos-laptop";
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth

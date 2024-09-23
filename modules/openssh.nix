@@ -1,17 +1,14 @@
 { ... }:
-# In your configuration.nix
-# In your configuration.nix
-{
-  # Other configurations...
-
+ {
   programs.ssh = {
-    startAgent = true;  # Enable the SSH agent at boot
-    knownHostsFile = "/home/kaan/.ssh/known_hosts";
-    extraConfig = ''
-      IdentityFile /home/kaan/.ssh/id_home  # Replace with your key path
-    '';
-  };
+  startAgent = true;  # Start SSH agent on boot
+ };
+ systemd.user.services.ssh-add = {
+  description = "Add SSH key to agent on login";
+  after = [ "ssh-agent.service" ];
+  wantedBy = [ "default.target" ];
+  serviceConfig.ExecStart = "./custom/ssh-add.sh";
+};
 
-  # Other configurations...
+
 }
-

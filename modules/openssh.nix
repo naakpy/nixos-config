@@ -7,7 +7,7 @@
   description = "Add SSH key to agent on login";
   after = [ "ssh-agent.service" ];
   wantedBy = [ "default.target" ];
-  serviceConfig.ExecStart = "./custom/ssh-add.sh";
+  serviceConfig.ExecStart = "/home/kaan/nixos-config/modules/custom/add-ssh.sh";
 };
 
 

@@ -25,8 +25,12 @@
   programs.mako = {
     enable = true;
     defaultTimeout = 5000;
-  }
-  
+    backgroundColor = "#151718";
+    textColor = "#9FCA56";
+    borderColor = "#151718";
+  };
+
+    
   programs.zsh = {
   enable = true;
   enableCompletion = true;

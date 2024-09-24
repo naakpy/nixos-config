@@ -22,6 +22,11 @@
 
   programs.direnv.enable = true;
   
+  programs.mako = {
+    enable = true;
+    defaultTimeout = 5000;
+  }
+  
   programs.zsh = {
   enable = true;
   enableCompletion = true;

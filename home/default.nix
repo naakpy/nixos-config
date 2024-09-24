@@ -19,6 +19,8 @@
   
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.direnv.enable = true;
   
   programs.zsh = {
   enable = true;
@@ -28,6 +30,7 @@
   shellAliases = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch";
+    direnv = "eval $(direnv hook zsh)";
   };
   history = {
     size = 10000;

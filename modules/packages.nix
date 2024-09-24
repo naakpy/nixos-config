@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     (callPackage ./custom/cursor/cursor.nix {})
     exegol
+    spotify-player
     prismlauncher
     dbeaver-bin
     easyeffects

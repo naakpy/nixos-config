@@ -35,7 +35,21 @@
   enable = true;
   enableCompletion = true;
   syntaxHighlighting.enable = true;
+   
+  initExtra = ''
+      # Function to start ssh-agent
+      function start_ssh_agent {
+        echo "Starting ssh-agent..."
+        eval "$(ssh-agent -s)" > /dev/null
+        ssh-add /home/kaan/.ssh/id_home
+      }
 
+      # Check if SSH agent is running
+      if [ -z "$SSH_AUTH_SOCK" ] || ! [ -S "$SSH_AUTH_SOCK" ]; then
+        start_ssh_agent
+      fi
+  '';
+ 
   shellAliases = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch";

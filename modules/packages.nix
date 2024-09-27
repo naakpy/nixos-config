@@ -7,6 +7,7 @@
     (callPackage ./custom/cursor/cursor.nix {})
     exegol
     spotify-player
+    wl-screenrec
     prismlauncher
     dbeaver-bin
     easyeffects

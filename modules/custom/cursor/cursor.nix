@@ -10,7 +10,7 @@
     # alternatively, download the appimage manually and
     # include it via src = ./cursor.AppImage, instead of fetchurl
     url = "https://downloader.cursor.sh/linux/appImage/x64";
-    sha256 = "1v1v111s5cl704nylyzad0k8qx4zy81lsx3lshh7ylm7s64g5mss";
+    sha256 = "";
   };
   appimageContents = pkgs.appimageTools.extract {inherit pname version src;};
 in

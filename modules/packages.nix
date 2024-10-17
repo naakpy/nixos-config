@@ -20,6 +20,8 @@
     openssl
     git
     sysstat
+    wine
+    lutris
     lm_sensors
     neofetch
     xfce.thunar

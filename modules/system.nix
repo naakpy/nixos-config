@@ -48,6 +48,9 @@
   services.tailscale.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.draganddrop = true;
+
   virtualisation.docker.rootless = {
   enable = true;
   setSocketVariable = true;

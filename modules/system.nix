@@ -61,4 +61,5 @@
   environment.systemPackages = [
     pkgs.bash
   ];
+
 }

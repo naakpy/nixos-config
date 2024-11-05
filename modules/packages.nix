@@ -16,6 +16,7 @@
     nano
     vim
     wget
+    tor
     curl
     openssl
     git
@@ -57,5 +58,6 @@
     firefox
     rpi-imager
     webcord
+    lunarvim
   ];
 }

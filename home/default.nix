@@ -22,7 +22,7 @@
 
   programs.direnv.enable = true;
   
-  programs.mako = {
+  services.mako = {
     enable = true;
     defaultTimeout = 5000;
     backgroundColor = "#151718";

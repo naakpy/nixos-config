@@ -13,7 +13,10 @@
     easyeffects
     burpsuite
     obsidian
+    thunderbird
     nano
+    vesktop
+    digikam
     vim
     wget
     tor

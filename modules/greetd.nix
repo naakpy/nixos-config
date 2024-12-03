@@ -3,7 +3,6 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = "Hyprland";
       greeter = {
         command = "${pkgs.tuigreet}/bin/tuigreet";
         user = "greeter";

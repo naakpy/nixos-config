@@ -20,7 +20,6 @@
     vim
     protonvpn-cli
     qbittorrent
-    tuigreet
     wget
     tor
     curl

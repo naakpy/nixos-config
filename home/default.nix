@@ -30,27 +30,23 @@
     borderColor = "#151718";
   };
 
-    
-	programs.zsh = {
-	enable = true;
-	enableCompletion = true;
-	syntaxHighlighting.enable = true;
+  programs.zsh = {
+  enable = true;
+  enableCompletion = true;
+  syntaxHighlighting.enable = true;
 
-	initExtra = ''
-	# Function to start ssh-agent
-	function start_ssh_agent {
-	eval "$(ssh-agent -s)" > /dev/null 2>&1
-	ssh-add /home/kaan/.ssh/id_home > /dev/null 2>&1
-	}
+  initExtra = ''
+      function start_ssh_agent {
+        eval "$(ssh-agent -s)" > /dev/null 2>&1
+        ssh-add /home/kaan/.ssh/id_home > /dev/null 2>&1
+      }
 
-	# Always start SSH agent
-	start_ssh_agent
-	'';
-	};
- 
+      start_ssh_agent
+  '';
+
   shellAliases = {
     ll = "ls -l";
-    update = "sudo nixos-rebuild switch";
+    update = "gwip && gp && git pull && sudo nixos-rebuild switch";
     direnv = "eval $(direnv hook zsh)";
   };
   history = {

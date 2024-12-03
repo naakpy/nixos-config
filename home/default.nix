@@ -31,24 +31,22 @@
   };
 
     
-  programs.zsh = {
-  enable = true;
-  enableCompletion = true;
-  syntaxHighlighting.enable = true;
-   
-  initExtra = ''
-      # Function to start ssh-agent
-      function start_ssh_agent {
-        echo "Starting ssh-agent..."
-        eval "$(ssh-agent -s)" > /dev/null
-        ssh-add /home/kaan/.ssh/id_home
-      }
+	programs.zsh = {
+	enable = true;
+	enableCompletion = true;
+	syntaxHighlighting.enable = true;
 
-      # Check if SSH agent is running
-      if [ -z "$SSH_AUTH_SOCK" ] || ! [ -S "$SSH_AUTH_SOCK" ]; then
-        start_ssh_agent
-      fi
-  '';
+	initExtra = ''
+	# Function to start ssh-agent
+	function start_ssh_agent {
+	eval "$(ssh-agent -s)" > /dev/null 2>&1
+	ssh-add /home/kaan/.ssh/id_home > /dev/null 2>&1
+	}
+
+	# Always start SSH agent
+	start_ssh_agent
+	'';
+	};
  
   shellAliases = {
     ll = "ls -l";

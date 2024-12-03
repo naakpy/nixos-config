@@ -21,6 +21,7 @@
     protonvpn-cli
     qbittorrent
     wget
+    gocr
     tor
     curl
     openssl

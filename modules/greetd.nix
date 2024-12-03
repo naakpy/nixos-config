@@ -1,3 +1,4 @@
+{ config, pkgs, lib, ... }:
 {
   services.greetd = {
     enable = true;

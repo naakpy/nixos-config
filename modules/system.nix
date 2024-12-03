@@ -45,6 +45,7 @@
   networking.networkmanager.enable = true;
   
   services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "client";  
 
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.guest.enable = true;

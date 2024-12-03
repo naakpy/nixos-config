@@ -18,6 +18,8 @@
     vesktop
     digikam
     vim
+    protonvpn-cli
+    qbittorrent
     wget
     tor
     curl

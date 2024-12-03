@@ -22,6 +22,7 @@
     qbittorrent
     wget
     gocr
+    python3Packages.pip
     tor
     curl
     openssl

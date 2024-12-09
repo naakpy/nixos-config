@@ -24,8 +24,8 @@
     gocr
     python3Packages.pip
     tor
-    cura
     curl
+    super-slicer-latest
     openssl
     git
     sysstat

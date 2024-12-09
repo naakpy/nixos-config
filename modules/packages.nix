@@ -24,6 +24,7 @@
     gocr
     python3Packages.pip
     tor
+    cura
     curl
     openssl
     git

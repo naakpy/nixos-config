@@ -7,8 +7,8 @@
 
       # normal fonts
       noto-fonts
-      noto-fonts-cjk
       noto-fonts-emoji
+      noto-fonts-cjk-sans
       
 
       font-awesome

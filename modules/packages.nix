@@ -26,6 +26,7 @@
     tor
     curl
     super-slicer-latest
+    blender
     openssl
     git
     sysstat

@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    exegol
     spotify-player
     vscode
     wl-screenrec
@@ -19,11 +16,8 @@
     digikam
     jellyfin
     vim
-    protonvpn-cli
     qbittorrent
     wget
-    gocr
-    python3Packages.pip
     tor
     curl
     super-slicer-latest
@@ -31,43 +25,26 @@
     openssl
     git
     sysstat
-    wine
-    lutris
     lm_sensors
     neofetch
-    xfce.thunar
-    ranger
     pavucontrol
-    librewolf
     btop
     iotop
     iftop
     kitty
     rofi-wayland
-    freetube
     steam
-    cmake
-    gnumake
-    libgcc
-    gcc
-    xorg.xrandr
-    nodejs
-    yarn
     zsh
     unzip
     python3
     appimage-run
-    criterion
     swww
     networkmanagerapplet
     mako
     jq
     brightnessctl
     hyprshot
-    nomacs
     firefox
-    rpi-imager
-    webcord
-    lunarvim
+    superfile
   ];
 }

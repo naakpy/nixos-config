@@ -17,6 +17,7 @@
     nano
     vesktop
     digikam
+    jellyfin
     vim
     protonvpn-cli
     qbittorrent

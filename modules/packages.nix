@@ -46,5 +46,6 @@
     hyprshot
     firefox
     superfile
+    jellyfin
   ];
 }

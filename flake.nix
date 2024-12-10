@@ -16,9 +16,52 @@
         specialArgs = { inherit inputs pkgs; };  # Pass both inputs and pkgs to modules
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
-          ./modules/system.nix
           ./configuration.nix
-          
+
+          {
+            imports = [
+              ./packages.nix
+              ./pipewire.nix
+              ./fonts.nix
+              ./steam.nix
+              ./waybar.nix
+              ./greetd.nix
+            ];
+
+            users.users.kaan = {
+              isNormalUser = true;
+              description = "kaan";
+              extraGroups = ["networkmanager" "wheel" "vboxusers" "docker"];
+              shell = pkgs.zsh;
+              ignoreShellProgramCheck = true;
+            };
+
+            nix.settings = {
+              experimental-features = ["nix-command" "flakes"];
+            };
+
+            nix.gc = {
+              automatic = lib.mkDefault true;
+              dates = lib.mkDefault "weekly";
+              options = lib.mkDefault "--delete-older-than 7d";
+            };
+
+            nixpkgs.config.allowUnfree = true;
+
+            time.timeZone = "Europe/Paris";
+
+            hardware.bluetooth.enable = true;
+            hardware.bluetooth.powerOnBoot = true;
+
+            boot.loader.systemd-boot.enable = true;
+            boot.loader.efi.canTouchEfiVariables = true;
+
+            system.stateVersion = "24.05";
+
+            networking.networkmanager.enable = true;
+
+          }
+
           # Home Manager configuration
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

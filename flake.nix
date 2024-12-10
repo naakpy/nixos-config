@@ -12,18 +12,20 @@
     nixosConfigurations = let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;  # Define pkgs explicitly
       lib = pkgs.lib;  # Define lib explicitly
+
       makeHost = hostName: {
         system = "x86_64-linux";
         specialArgs = { inherit inputs pkgs lib; };  # Pass both inputs, pkgs, and lib to modules
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./configuration.nix
-	  ./modules/packages.nix
-	  ./modules/waybar.nix
-	  ./modules/fonts.nix
-	  ./modules/pipewire.nix
-	  ./modules/greetd.nix
+          ./modules/packages.nix
+          ./modules/waybar.nix
+          ./modules/fonts.nix
+          ./modules/pipewire.nix
+          ./modules/greetd.nix
           {
+            networking.hostName = hostName; # Dynamically set the hostname
             users.users.kaan = {
               isNormalUser = true;
               description = "kaan";

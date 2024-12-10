@@ -12,6 +12,7 @@
     # Define the function in the correct scope
     makeNixosSystem = hostName: inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; }; # Pass inputs explicitly to modules
       modules = [
         ./hosts/${hostName}/hardware-configuration.nix
         ./hyprland.nix

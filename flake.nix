@@ -18,7 +18,7 @@
         specialArgs = { inherit inputs pkgs lib; };  # Pass both inputs, pkgs, and lib to modules
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
-          ./configuration.nix
+          ./hyprland.nix
           ./modules/packages.nix
           ./modules/waybar.nix
           ./modules/fonts.nix

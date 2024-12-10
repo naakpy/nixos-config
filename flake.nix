@@ -12,7 +12,7 @@
     nixosConfigurations = let
       makeHost = hostName: {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs pkgs; };
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./modules/system.nix

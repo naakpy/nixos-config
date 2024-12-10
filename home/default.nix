@@ -240,12 +240,6 @@
       options = "--daemon";
     };
 
-    # Launch nm-applet (NetworkManager)
-    network-manager-applet = {
-      enable = true;
-      indicator = true;
-    };
-
     # Launch Waybar
     waybar = {
       enable = true;

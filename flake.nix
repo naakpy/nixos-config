@@ -53,13 +53,11 @@
 
           system.stateVersion = "24.05";
 
-          services = {
-            printing.enable = true;
-            networking.networkmanager.enable = true;
-            tailscale = {
-              enable = true;
-              useRoutingFeatures = "client";
-            };
+          networking.networkmanager.enable = true; # Corrected NetworkManager option
+          
+          services.tailscale = {
+            enable = true;
+            useRoutingFeatures = "client";
           };
 
           virtualisation = {
@@ -69,6 +67,8 @@
               setSocketVariable = true;
             };
           };
+
+          services.printing.enable = true; # Kept printing under services
         }
 
         # Home Manager module for user-specific configurations

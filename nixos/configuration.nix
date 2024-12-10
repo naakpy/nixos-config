@@ -52,6 +52,10 @@
     pkgs.networkmanagerapplet
   ];
   
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   users.users = {
     kaan = {
       initialPassword = "password";
@@ -60,6 +64,20 @@
       extraGroups = [ "wheel" "networkmanager" "docker" ];
     };
   };
+
+
+  fonts.packages = with pkgs; [
+  noto-fonts
+  noto-fonts-cjk-sans
+  noto-fonts-emoji
+  liberation_ttf
+  fira-code
+  fira-code-symbols
+  mplus-outline-fonts.githubRelease
+  dina-font
+  proggyfonts
+  nerdfonts
+  ];
 
   services.openssh = {
     enable = false;

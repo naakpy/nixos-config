@@ -192,7 +192,7 @@
         };
         "custom/powermenu" = {
           "format" = "";
-          "on-click" = "pkill rofi || ~/.config/rofi/powermenu/type-3/powermenu.sh";
+          "on-click" = "pkill rofi || rofi-power-menu";
           "tooltip" = false;
         };
         "tray" = {

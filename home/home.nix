@@ -47,6 +47,7 @@
     iotop
     tokyo-night-gtk
     swww
+    rofi-power-menu
   ]);
 
   programs.home-manager.enable = true;

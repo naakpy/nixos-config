@@ -46,6 +46,26 @@
             alsa.support32Bit = true;
             pulse.enable = true;
           };
+          greetd = {
+            enable = true;
+            settings = {
+              default_session = {
+                command = "${inputs.nixpkgs.legacyPackages.x86_64-linux.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${inputs.hyprland.packages.${inputs.nixpkgs.legacyPackages.x86_64-linux.stdenv.hostPlatform.system}.hyprland}/share/wayland-sessions";
+                user = "greeter";
+              };
+            };
+          };
+        };
+
+        systemd.services.greetd.serviceConfig = {
+          Type = "idle";
+          StandardInput = "tty";
+          StandardOutput = "tty";
+          StandardError = "journal"; # Without this errors will spam on screen
+          # Without these bootlogs will spam on screen
+          TTYReset = true;
+          TTYVHangup = true;
+          TTYVTDisallocate = true;
         };
 
         security.rtkit.enable = true;

@@ -233,25 +233,4 @@
 	bindm = $mainMod, mouse:273, resizewindow
     '';
   };
-  services = {
-    # Launch swww-daemon
-    swww = {
-      enable = true;
-      options = "--daemon";
-    };
-
-    # Launch Waybar
-    waybar = {
-      enable = true;
-    };
-  };
-
-  xdg = {
-    mime = {
-      enable = true;
-      defaultApplications = {
-        text = "kitty.desktop";
-      };
-    };
-  };
 }

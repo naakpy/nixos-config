@@ -22,12 +22,7 @@
           # Move system.nix content here
           {
             imports = [
-              ./packages.nix
-              ./pipewire.nix
-              ./fonts.nix
-              ./steam.nix
-              ./waybar.nix
-              ./greetd.nix
+              ./modules/packages.nix
             ];
 
             users.users.kaan = {

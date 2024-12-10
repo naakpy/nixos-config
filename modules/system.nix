@@ -3,7 +3,6 @@
   imports = [
     ./packages.nix
     ./pipewire.nix
-    ./hyprland.nix
     ./fonts.nix
     ./steam.nix
     ./waybar.nix
@@ -57,10 +56,4 @@
   setSocketVariable = true;
   
   };
-  programs.hyprland.xwayland.enable = true;
-
-  environment.systemPackages = [
-    pkgs.bash
-  ];
-
 }

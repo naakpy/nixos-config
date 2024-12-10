@@ -25,6 +25,7 @@
     openssl
     git
     sysstat
+    bash
     lm_sensors
     neofetch
     pavucontrol

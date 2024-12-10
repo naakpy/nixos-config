@@ -19,7 +19,6 @@
           ./hosts/${hostName}/hardware-configuration.nix
           ./configuration.nix
 
-          # Move system.nix content here
           {
             users.users.kaan = {
               isNormalUser = true;

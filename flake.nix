@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";  
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";  # Add Hyprland input
+    hyprland.url = "github:hyprwm/Hyprland";  # Hyprland input
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: let
@@ -72,7 +72,6 @@
           git sysstat bash lm_sensors neofetch pavucontrol btop iotop iftop kitty
           rofi-wayland zsh unzip python3 appimage-run swww networkmanagerapplet mako
           jq brightnessctl hyprshot firefox superfile jellyfin-web
-          inputs.hyprland.packages.default  # Add Hyprland package
         ];
 
         # Fonts configuration
@@ -97,11 +96,11 @@
           };
         };
 
-        # Hyprland-specific settings
+        # Hyprland configuration
         programs.hyprland = {
           enable = true;
-          configDir = ".config/hypr";
-          extraOptions = "--example-option";  # Replace with real options as needed
+          package = inputs.hyprland.packages.${inputs.nixpkgs.legacyPackages.x86_64-linux.stdenv.hostPlatform.system}.hyprland;
+          portalPackage = inputs.hyprland.packages.${inputs.nixpkgs.legacyPackages.x86_64-linux.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         };
       };
     };

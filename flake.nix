@@ -32,9 +32,10 @@
           efi.canTouchEfiVariables = true;
         };
 
+        networking.networkmanager.enable = true;
+
         services = {
           printing.enable = true;
-          networking.networkmanager.enable = true;
           tailscale = {
             enable = true;
             useRoutingFeatures = "client";

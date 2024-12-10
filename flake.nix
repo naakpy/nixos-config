@@ -20,6 +20,7 @@
           ./configuration.nix
 	  ./modules/packages.nix
 	  ./modules/waybar.nix
+	  ./modules/fonts.nix
           {
             users.users.kaan = {
               isNormalUser = true;

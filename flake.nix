@@ -19,7 +19,7 @@
           ./hosts/${hostName}/hardware-configuration.nix
           ./configuration.nix
 	  ./modules/packages.nix
-
+	  ./modules/waybar.nix
           {
             users.users.kaan = {
               isNormalUser = true;

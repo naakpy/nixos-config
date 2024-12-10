@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ./packages.nix
@@ -36,6 +36,14 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
+  
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  system.stateVersion = "24.05";
 
 
   # Enable CUPS to print documents.

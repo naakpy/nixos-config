@@ -11,12 +11,13 @@
     extraConfig = ''
 
     # Monitor
-    monitor=DP-1,3440x1440@144,auto,1
+    monitor = DP-1, 3440x1440@144, auto, 1
 
     # Autostart
     exec-once = hyprctl setcursor Bibata-Modern-Classic 24
     exec-once = dunst
     exec-once = swww-daemon
+    exec-once = nm-applet
 
     source = /home/kaan/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar

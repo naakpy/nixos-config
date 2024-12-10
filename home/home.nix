@@ -30,12 +30,14 @@
     vscode
     firefox
     vesktop
+    spotify-player
 
     #utils
     ranger
     wget
     curl
     pavucontrol
+    tree
 
     #misc
     appimage-run
@@ -48,7 +50,10 @@
   ]);
 
   programs.home-manager.enable = true;
+
   fonts.fontconfig.enable = true;
+
   systemd.user.startServices = "sd-switch";
+
   home.stateVersion = "23.05";
 }

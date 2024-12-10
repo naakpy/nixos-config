@@ -7,8 +7,8 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    ./greetd.nix
   ];
   
   home-manager = {
@@ -46,14 +46,18 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  networking.hostName = "nixos-pc";
-
+  
+  networking.networkmanager.enable = true;
+  environment.systemPackages = [
+    pkgs.networkmanagerapplet
+  ];
+  
   users.users = {
     kaan = {
       initialPassword = "password";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [];
-      extraGroups = ["wheel"];
+      extraGroups = [ "wheel" "networkmanager" "docker" ];
     };
   };
 
@@ -64,7 +68,6 @@
       PasswordAuthentication = false;
     };
   };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }

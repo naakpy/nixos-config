@@ -47,7 +47,7 @@
   shellAliases = {
     ll = "ls -l";
     direnv = "eval $(direnv hook zsh)";
-    alias update="(cd ~/nixos-config && gwip && gp && git pull && nix flake update && sudo nixos-rebuild switch --flake .)";
+    update = "(cd ~/nixos-config && gwip && gp && git pull && nix flake update && sudo nixos-rebuild switch --flake .)";
 
   };
   history = {

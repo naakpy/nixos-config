@@ -5,92 +5,103 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";  
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";  # Add Hyprland input
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }: let
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: let
     # Shared configuration for all hosts
     sharedConfig = {
-      nixpkgs.config.allowUnfree = true;
+      config = {
+        nixpkgs.config.allowUnfree = true;
 
-      nix.settings.experimental-features = ["nix-command" "flakes"];
-      nix.gc = {
-        automatic = true;
-        options = "--delete-older-than 7d";
-      };
-
-      time.timeZone = "Europe/Paris";
-
-      hardware.bluetooth = {
-        enable = true;
-        powerOnBoot = true;
-      };
-
-      boot.loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-      };
-
-      services = {
-        printing.enable = true;
-        networking.networkmanager.enable = true;
-        tailscale = {
-          enable = true;
-          useRoutingFeatures = "client";
+        nix.settings.experimental-features = ["nix-command" "flakes"];
+        nix.gc = {
+          automatic = true;
+          options = "--delete-older-than 7d";
         };
-        pipewire = {
+
+        time.timeZone = "Europe/Paris";
+
+        hardware.bluetooth = {
           enable = true;
-          alsa.enable = true;
-          alsa.support32Bit = true;
-          pulse.enable = true;
+          powerOnBoot = true;
         };
-      };
 
-      security.rtkit.enable = true;
-
-      virtualisation = {
-        virtualbox.host.enable = true;
-        docker.rootless = {
-          enable = true;
-          setSocketVariable = true;
+        boot.loader = {
+          systemd-boot.enable = true;
+          efi.canTouchEfiVariables = true;
         };
-      };
 
-      users.users.kaan = {
-        isNormalUser = true;
-        description = "Kaan";
-        extraGroups = ["networkmanager" "wheel" "docker"];
-        shell = inputs.nixpkgs.legacyPackages.x86_64-linux.zsh;
-        ignoreShellProgramCheck = true;
-      };
+        services = {
+          printing.enable = true;
+          networking.networkmanager.enable = true;
+          tailscale = {
+            enable = true;
+            useRoutingFeatures = "client";
+          };
+          pipewire = {
+            enable = true;
+            alsa.enable = true;
+            alsa.support32Bit = true;
+            pulse.enable = true;
+          };
+        };
 
-      # System packages
-      environment.systemPackages = with inputs.nixpkgs.legacyPackages.x86_64-linux; [
-        spotify-player wl-screenrec prismlauncher dbeaver-bin easyeffects thunderbird
-        nano vesktop digikam jellyfin vim qbittorrent wget tor curl blender openssl
-        git sysstat bash lm_sensors neofetch pavucontrol btop iotop iftop kitty
-        rofi-wayland zsh unzip python3 appimage-run swww networkmanagerapplet mako
-        jq brightnessctl hyprshot firefox superfile jellyfin-web
-      ];
+        security.rtkit.enable = true;
 
-      # Fonts configuration
-      fonts = {
-        packages = with inputs.nixpkgs.legacyPackages.x86_64-linux; [
-          material-design-icons
-          noto-fonts
-          noto-fonts-emoji
-          noto-fonts-cjk-sans
-          font-awesome
-          nerd-fonts.fira-code
-          nerd-fonts.jetbrains-mono
+        virtualisation = {
+          virtualbox.host.enable = true;
+          docker.rootless = {
+            enable = true;
+            setSocketVariable = true;
+          };
+        };
+
+        users.users.kaan = {
+          isNormalUser = true;
+          description = "Kaan";
+          extraGroups = ["networkmanager" "wheel" "docker"];
+          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.zsh;
+          ignoreShellProgramCheck = true;
+        };
+
+        # System packages
+        environment.systemPackages = with inputs.nixpkgs.legacyPackages.x86_64-linux; [
+          spotify-player wl-screenrec prismlauncher dbeaver-bin easyeffects thunderbird
+          nano vesktop digikam jellyfin vim qbittorrent wget tor curl blender openssl
+          git sysstat bash lm_sensors neofetch pavucontrol btop iotop iftop kitty
+          rofi-wayland zsh unzip python3 appimage-run swww networkmanagerapplet mako
+          jq brightnessctl hyprshot firefox superfile jellyfin-web
+          inputs.hyprland.packages.default  # Add Hyprland package
         ];
 
-        enableDefaultPackages = false;
+        # Fonts configuration
+        fonts = {
+          packages = with inputs.nixpkgs.legacyPackages.x86_64-linux; [
+            material-design-icons
+            noto-fonts
+            noto-fonts-emoji
+            noto-fonts-cjk-sans
+            font-awesome
+            nerd-fonts.fira-code
+            nerd-fonts.jetbrains-mono
+          ];
 
-        fontconfig.defaultFonts = {
-          serif = ["Noto Serif" "Noto Color Emoji"];
-          sansSerif = ["Noto Sans" "Noto Color Emoji"];
-          monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-          emoji = ["Noto Color Emoji"];
+          enableDefaultPackages = false;
+
+          fontconfig.defaultFonts = {
+            serif = ["Noto Serif" "Noto Color Emoji"];
+            sansSerif = ["Noto Sans" "Noto Color Emoji"];
+            monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+            emoji = ["Noto Color Emoji"];
+          };
+        };
+
+        # Hyprland-specific settings
+        programs.hyprland = {
+          enable = true;
+          configDir = ".config/hypr";
+          extraOptions = "--example-option";  # Replace with real options as needed
         };
       };
     };
@@ -102,7 +113,7 @@
         ./hosts/${hostName}/hardware-configuration.nix
         # Shared configurations
         {
-          inherit (sharedConfig) config users services nixpkgs hardware boot virtualisation environment fonts;
+          inherit (sharedConfig) config;
         }
         # Host-specific configurations
         hostSpecific

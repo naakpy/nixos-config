@@ -12,8 +12,8 @@
       font-awesome
 
       # Nerd fonts
-      nerd-fonts.fira_code
-      nerd-fonts.jetbrains_mono
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
     ];
 
     # Use fonts specified by user rather than default ones

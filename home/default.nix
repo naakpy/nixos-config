@@ -51,6 +51,6 @@
   programs.kitty.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = builtins.readFile ~/.config/hypr/hyprland.conf; # Adjust path as needed
+    extraConfig = builtins.readFile ../../.config/hypr/hyprland.conf; # Adjust path as needed
   };
 }

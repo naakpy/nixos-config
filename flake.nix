@@ -21,10 +21,6 @@
 
           # Move system.nix content here
           {
-            imports = [
-              ./modules/packages.nix
-            ];
-
             users.users.kaan = {
               isNormalUser = true;
               description = "kaan";

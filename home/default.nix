@@ -231,9 +231,33 @@
 	# Move/resize windows with mainMod + LMB/RMB and dragging
 	bindm = $mainMod, mouse:272, movewindow
 	bindm = $mainMod, mouse:273, resizewindow
-
-
-	exec-once=bash ~/.config/hypr/start.sh
     '';
+  };
+  services = {
+    # Launch swww-daemon
+    swww = {
+      enable = true;
+      options = "--daemon";
+    };
+
+    # Launch nm-applet (NetworkManager)
+    network-manager-applet = {
+      enable = true;
+      indicator = true;
+    };
+
+    # Launch Waybar
+    waybar = {
+      enable = true;
+    };
+  };
+
+  xdg = {
+    mime = {
+      enable = true;
+      defaultApplications = {
+        text = "kitty.desktop";
+      };
+    };
   };
 }

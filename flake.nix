@@ -11,13 +11,15 @@
   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: {
     nixosConfigurations = let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;  # Define pkgs explicitly
+      lib = pkgs.lib;  # Define lib explicitly
       makeHost = hostName: {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs pkgs; };  # Pass both inputs and pkgs to modules
+        specialArgs = { inherit inputs pkgs lib; };  # Pass both inputs, pkgs, and lib to modules
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./configuration.nix
 
+          # Move system.nix content here
           {
             imports = [
               ./packages.nix
@@ -58,8 +60,18 @@
 
             system.stateVersion = "24.05";
 
+            services.printing.enable = true;
             networking.networkmanager.enable = true;
 
+            services.tailscale.enable = true;
+            services.tailscale.useRoutingFeatures = "client";
+
+            virtualisation.virtualbox.host.enable = true;
+
+            virtualisation.docker.rootless = {
+              enable = true;
+              setSocketVariable = true;
+            };
           }
 
           # Home Manager configuration

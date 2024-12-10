@@ -56,7 +56,7 @@
     kaan = {
       initialPassword = "password";
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [];
+      openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2J9YKlcGlhny06zjSme57qFOGarY/F0X9VvulUPrhm kaan@doyurur.xyz"];
       extraGroups = [ "wheel" "networkmanager" "docker" ];
     };
   };

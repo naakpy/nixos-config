@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";  # For Hyprland and other packages
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";  
     home-manager.url = "github:nix-community/home-manager";  # Home Manager
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";  # Hyprland flake

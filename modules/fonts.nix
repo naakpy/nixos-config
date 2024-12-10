@@ -1,27 +1,26 @@
-{pkgs, ... }:
+{ pkgs, ... }:
 {
   fonts = {
     packages = with pkgs; [
-      # icon fonts
+      # Icon fonts
       material-design-icons
 
-      # normal fonts
+      # Normal fonts
       noto-fonts
       noto-fonts-emoji
       noto-fonts-cjk-sans
-      
-
       font-awesome
-   # nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+
+      # Nerd fonts
+      nerd-fonts.fira_code
+      nerd-fonts.jetbrains_mono
     ];
 
-    # use fonts specified by user rather than default ones
+    # Use fonts specified by user rather than default ones
     enableDefaultPackages = false;
 
-
-    # user defined fonts
-    # the reason there's Noto Color Emoji everywhere is to override DejaVu's
+    # User-defined fonts
+    # The reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig.defaultFonts = {
       serif = ["Noto Serif" "Noto Color Emoji"];
@@ -31,3 +30,4 @@
     };
   };
 }
+

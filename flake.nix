@@ -23,7 +23,6 @@
 	  ./modules/fonts.nix
 	  ./modules/pipewire.nix
 	  ./modules/greetd.nix
-
           {
             users.users.kaan = {
               isNormalUser = true;

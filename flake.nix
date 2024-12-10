@@ -2,18 +2,26 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-unstable";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";  # Add Hyprland flake
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: {
     nixosConfigurations = let
       makeHost = hostName: {
         system = "x86_64-linux";
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./modules/system.nix
+
+          {
+            wayland.windowManager.hyprland = {
+              enable = true;
+              package = inputs.hyprland.packages.${nixpkgs.stdenv.hostPlatform.system}.hyprland;
+            };
+          }
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

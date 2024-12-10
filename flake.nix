@@ -10,21 +10,16 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: {
     nixosConfigurations = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;  # Define pkgs explicitly
       makeHost = hostName: {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs pkgs; };
+        specialArgs = { inherit inputs pkgs; };  # Pass both inputs and pkgs to modules
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./modules/system.nix
-	  ./configuration.nix
-
-          {
-            wayland.windowManager.hyprland = {
-              enable = true;
-              package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-            };
-          }
-
+          ./configuration.nix
+          
+          # Home Manager configuration
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

@@ -123,6 +123,8 @@
           package = inputs.hyprland.packages.${inputs.nixpkgs.legacyPackages.x86_64-linux.stdenv.hostPlatform.system}.hyprland;
           portalPackage = inputs.hyprland.packages.${inputs.nixpkgs.legacyPackages.x86_64-linux.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         };
+	
+	system.stateVersion = "24.05";
       };
     };
 

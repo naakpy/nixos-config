@@ -9,11 +9,11 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = let
-      makeHost = hostName: hardwareConfig: {
+      makeHost = hostName: {
         system = "x86_64-linux";
         modules = [
-          ./hosts/${hostName}/${hardwareConfig}  # Hardware-specific config
-          ./modules/system.nix                  # Shared system-wide config
+          ./hosts/${hostName}/hardware-configuration.nix
+          ./modules/system.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -24,8 +24,8 @@
         ];
       };
     in {
-      nixos-pc = nixpkgs.lib.nixosSystem (makeHost "nixos-pc" "hardware-configuration.nix");
-      nixos-laptop = nixpkgs.lib.nixosSystem (makeHost "nixos-laptop" "hardware-configuration.nix");
+      nixos-pc = nixpkgs.lib.nixosSystem (makeHost "nixos-pc");
+      nixos-laptop = nixpkgs.lib.nixosSystem (makeHost "nixos-laptop");
     };
   };
 }

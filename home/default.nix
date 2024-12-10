@@ -49,5 +49,12 @@
   };
 
   programs.kitty.enable = true;
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = ''
+      # Use the custom Hyprland configuration file
+      source = ~/.config/hypr/hypr.conf
+    '';
+    settings = null; # Disable automatic settings to avoid conflicts
+  };
 }

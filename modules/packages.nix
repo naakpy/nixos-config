@@ -3,13 +3,10 @@
 {
   environment.systemPackages = with pkgs; [
     spotify-player
-    vscode
     wl-screenrec
     prismlauncher
     dbeaver-bin
     easyeffects
-    burpsuite
-    obsidian
     thunderbird
     nano
     vesktop
@@ -20,7 +17,6 @@
     wget
     tor
     curl
-    super-slicer-latest
     blender
     openssl
     git
@@ -34,7 +30,6 @@
     iftop
     kitty
     rofi-wayland
-    steam
     zsh
     unzip
     python3

@@ -18,6 +18,7 @@
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./configuration.nix
+	  ./modules/packages.nix
 
           {
             users.users.kaan = {

@@ -28,7 +28,6 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
-    firefox
     vesktop
     spotify-player
 

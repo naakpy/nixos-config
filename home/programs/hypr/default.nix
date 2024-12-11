@@ -13,7 +13,12 @@
     # Monitor
     monitor = DP-1, 3440x1440@144, auto, 1
     
-    monitor = eDP-1, 2880x1800@120, auto, 1
+    monitor = eDP-1, 2880x1800@120, auto, 1.5
+    
+    misc {
+      disable_splash_rendering = true
+      disable_hyprland_logo = true
+    }
 
     # Autostart
     exec-once = hyprctl setcursor Bibata-Modern-Classic 24
@@ -23,7 +28,7 @@
 
     source = /home/kaan/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
-    exec = swww img ~/nixos-config/home/wallpapers/wallpaper.png
+    exec = sleep 0.5 && swww img ~/nixos-config/home/wallpapers/wallpaper.png
 
     # Set en layout at startup
 

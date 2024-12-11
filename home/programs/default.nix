@@ -1,6 +1,7 @@
 {
   imports = [
     ./hypr
+    ./firefox
     ./fonts
     ./dunst
     ./waybar

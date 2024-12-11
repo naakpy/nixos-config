@@ -9,14 +9,10 @@
     profiles.default = {
       search = {
         force = true;
-        default = "Kagi";
+        default = "DuckDuckGo";
         privateDefault = "DuckDuckGo";
-        order = ["Kagi" "DuckDuckGo" "Google"];
+        order = ["DuckDuckGo"];
         engines = {
-          "Kagi" = {
-            urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
-            iconUpdateURL = "https://kagi.com/favicon.ico";
-          };
           "Bing".metaData.hidden = true;
         };
       };
@@ -24,10 +20,11 @@
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         ublock-origin
         bitwarden
+        sponsorblock
       ];
       bookmarks = {};
       settings = {
-        "browser.startup.homepage" = "about:home";
+        "browser.startup.homepage" = "https://home.kaan.ovh";
 
         # Disable irritating first-run stuff
         "browser.disableResetPrompt" = true;

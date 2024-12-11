@@ -103,13 +103,19 @@
 
     # Functional keybinds
     bind =,XF86AudioMicMute,exec,pamixer --default-source -t
-    bind =,XF86MonBrightnessDown,exec,light -U 20
-    bind =,XF86MonBrightnessUp,exec,light -A 20
+    bind =,XF86MonBrightnessDown,exec,brightnessctl set 5%-
+    bind =,XF86MonBrightnessUp,exec,brightnessctl set 5%+
     bind =,XF86AudioMute,exec,pamixer -t
-    bind =,XF86AudioLowerVolume,exec,pamixer -d 10
-    bind =,XF86AudioRaiseVolume,exec,pamixer -i 10
+    bind =,XF86AudioLowerVolume,exec,pamixer -d 5
+    bind =,XF86AudioRaiseVolume,exec,pamixer -i 5
     bind =,XF86AudioPlay,exec,playerctl play-pause
     bind =,XF86AudioPause,exec,playerctl play-pause
+
+    # Screenshot binds
+    bind =, Print, exec, hyprshot -m output -m active
+    bind = SHIFT, Print, exec, hyprshot -m region
+
+    bind = $mainMod, L, exec, hyprlock
 
     # to switch between windows in a floating workspace
     bind = SUPER,Tab,cyclenext,
@@ -156,25 +162,91 @@
         '';
   };
 
-      home.file.".config/hypr/colors".text = ''
-$background = rgba(1d192bee)
-$foreground = rgba(c3dde7ee)
+    home.file.".config/hypr/colors".text = ''
+      $background = rgba(1d192bee)
+      $foreground = rgba(c3dde7ee)
+      $color0 = rgba(1d192bee)
+      $color1 = rgba(465EA7ee)
+      $color2 = rgba(5A89B6ee)
+      $color3 = rgba(6296CAee)
+      $color4 = rgba(73B3D4ee)
+      $color5 = rgba(7BC7DDee)
+      $color6 = rgba(9CB4E3ee)
+      $color7 = rgba(c3dde7ee)
+      $color8 = rgba(889aa1ee)
+      $color9 = rgba(465EA7ee)
+      $color10 = rgba(5A89B6ee)
+      $color11 = rgba(6296CAee)
+      $color12 = rgba(73B3D4ee)
+      $color13 = rgba(7BC7DDee)
+      $color14 = rgba(9CB4E3ee)
+      $color15 = rgba(c3dde7ee)
+  '';
 
-$color0 = rgba(1d192bee)
-$color1 = rgba(465EA7ee)
-$color2 = rgba(5A89B6ee)
-$color3 = rgba(6296CAee)
-$color4 = rgba(73B3D4ee)
-$color5 = rgba(7BC7DDee)
-$color6 = rgba(9CB4E3ee)
-$color7 = rgba(c3dde7ee)
-$color8 = rgba(889aa1ee)
-$color9 = rgba(465EA7ee)
-$color10 = rgba(5A89B6ee)
-$color11 = rgba(6296CAee)
-$color12 = rgba(73B3D4ee)
-$color13 = rgba(7BC7DDee)
-$color14 = rgba(9CB4E3ee)
-$color15 = rgba(c3dde7ee)
+  programs.hyprlock = {
+    enable = true;
+    extraConfig = ''
+      # BACKGROUND
+  background {
+      monitor =
+      path = ~/nixos-config/home/wallpapers/wallpaper.png
+      blur_passes = 3
+      contrast = 0.8916
+      brightness = 0.8172
+      vibrancy = 0.1696
+      vibrancy_darkness = 0.0
+  }
+
+  # GENERAL
+  general {
+      no_fade_in = false
+      grace = 0
+      disable_loading_bar = true
+  }
+
+  # INPUT FIELD
+  input-field {
+      monitor =
+      size = 250, 60
+      outline_thickness = 2
+      dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
+      dots_spacing = 0.2 # Scale of dots' absolute size, 0.0 - 1.0
+      dots_center = true
+      outer_color = rgba(0, 0, 0, 0)
+      inner_color = rgba(0, 0, 0, 0.5)
+      font_color = rgb(200, 200, 200)
+      fade_on_empty = false
+      font_family = JetBrains Mono Nerd Font Mono
+      placeholder_text = <span foreground="##cdd6f4">Input Password</span> #text for input password
+      hide_input = false
+      position = 0, -120
+      halign = center
+      valign = center
+  }
+
+  # TIME
+  label {
+      monitor =
+      text = cmd[update:1000] echo "$(date +"%H:%M")" # get formatted date
+      color = rgba(255, 255, 255, 0.9)
+      font_size = 120
+      font_family = JetBrains Mono Nerd Font Mono ExtraBold
+      position = 0, -300
+      halign = center
+      valign = top
+  }
+
+  # USER
+  label {
+      monitor =
+      text = cmd[update:100] echo "$USER"
+      color = rgba(255, 255, 255, 0.9)
+      font_size = 25
+      font_family = JetBrains Mono Nerd Font Mono
+      position = 0, -40
+      halign = center
+      valign = center
+  }
     '';
+  };
 }

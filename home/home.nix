@@ -38,12 +38,14 @@
     curl
     pavucontrol
     tree
+    hyprshot
 
     #misc
     appimage-run
     cava
     pamixer
     btop
+    brightnessctl
     iotop
     tokyo-night-gtk
     swww

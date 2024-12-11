@@ -46,6 +46,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  security.pam.services.hyprlock = {};
   
   networking.networkmanager.enable = true;
   environment.systemPackages = [

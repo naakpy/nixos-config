@@ -65,6 +65,7 @@
     };
   };
 
+  time.timeZone = "Europe/Paris";
 
   fonts.packages = with pkgs; [
   noto-fonts

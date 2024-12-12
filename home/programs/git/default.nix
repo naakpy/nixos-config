@@ -1,3 +1,10 @@
 {
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Kaan Doyurur";
+    userEmail = "kaan@doyurur.xyz";
+    extraConfig = {
+      init = { defaultBranch = "main"; };
+    };
+  };
 }

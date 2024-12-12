@@ -2,7 +2,6 @@
   imports = [
     ./hypr
     ./firefox
-    ./fonts
     ./dunst
     ./waybar
     ./kitty

@@ -30,6 +30,8 @@
     vscode
     vesktop
     spotify-player
+    signal-desktop
+    digikam
 
     #utils
     ranger
@@ -40,15 +42,14 @@
     hyprshot
 
     #misc
+    pamixer
     appimage-run
     cava
-    pamixer
     btop
     brightnessctl
     iotop
     tokyo-night-gtk
     swww
-    rofi-power-menu
   ]);
 
   programs.home-manager.enable = true;

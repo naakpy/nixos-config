@@ -35,6 +35,7 @@
 
     #utils
     ranger
+    unzip
     wget
     curl
     pavucontrol

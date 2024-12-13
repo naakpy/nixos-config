@@ -14,6 +14,11 @@
     monitor = DP-1, 3440x1440@144, auto, 1
     
     monitor = eDP-1, 2880x1800@120, auto, 1.25
+      
+    xwayland {
+      force_zero_scaling = true
+    }
+    
     
     misc {
       disable_splash_rendering = true

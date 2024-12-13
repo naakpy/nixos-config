@@ -57,6 +57,12 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  services.openvpn.servers = {
+    htbvpn = { 
+      config = "/home/kaan/openvpn/lab_naakdev.ovpn";
+    };
+  };
+
   users.users = {
     kaan = {
       initialPassword = "password";

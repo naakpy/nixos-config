@@ -41,6 +41,7 @@
     pavucontrol
     tree
     hyprshot
+    openvpn
 
     #misc
     pamixer

@@ -57,12 +57,6 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  services.openvpn.servers = {
-    htbvpn = { 
-      config = "/home/kaan/openvpn/lab_naakdev.ovpn";
-    };
-  };
-
   users.users = {
     kaan = {
       initialPassword = "password";
@@ -106,6 +100,11 @@
       PasswordAuthentication = false;
     };
   };
+
+  virtualisation.vmware.host.enable = true;
+  virtualisation.vmware.guest.enable = true;
+  services.xserver.videoDrivers = [ "vmware" ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }

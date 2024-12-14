@@ -33,9 +33,15 @@
     signal-desktop
     digikam
 
+    #htb
+    burpsuite
+    netcat
+    nmap
+
     #utils
     ranger
     unzip
+    jq
     wget
     curl
     pavucontrol

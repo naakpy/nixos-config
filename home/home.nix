@@ -33,14 +33,12 @@
     signal-desktop
     digikam
 
-    #htb
-    burpsuite
-    netcat
-    nmap
-
     #utils
     ranger
+    qemu
+    quickemu
     unzip
+    virt-viewer
     jq
     wget
     curl

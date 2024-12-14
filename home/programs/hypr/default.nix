@@ -7,16 +7,17 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     systemd.enable = true;
     extraConfig = ''
 
     # Monitor
     monitor = DP-1, 3440x1440@144, auto, 1
     
-    monitor = eDP-1, 2880x1800@120, auto, 1.25
+    monitor = eDP-1, 1920x1200@120, auto, 1
       
     xwayland {
-      force_zero_scaling = true
+      force_zero_scaling = false
     }
     
     

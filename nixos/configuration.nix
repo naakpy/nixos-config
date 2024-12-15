@@ -18,6 +18,8 @@
     };
   };
 
+  services.tlp.enable = true;
+
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
@@ -103,6 +105,8 @@
       PasswordAuthentication = false;
     };
   };
+
+  services.tailscale.enable = true;
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

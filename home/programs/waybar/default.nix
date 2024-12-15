@@ -74,7 +74,7 @@
                  padding-right: 6px;
                  color: #7ebae4;
                }
-         #mode, #clock, #memory, #temperature,#cpu, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+         #mode, #clock, #memory, #temperature,#cpu, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu {
                  padding-left: 10px;
                  padding-right: 10px;
                }
@@ -121,10 +121,6 @@
                  padding-right: 8px;
                  padding-left: 10px;
                }
-         #custom-cava-internal{
-                 font-family: "Hack Nerd Font" ;
-                 color: #33ccff;
-               }
       '';
       settings = [{
         "layer" = "top";
@@ -132,7 +128,6 @@
         modules-left = [
           "custom/launcher"
           "temperature"
-          "custom/cava-internal"
         ];
         modules-center = [
           "clock"
@@ -149,10 +144,6 @@
         "custom/launcher" = {
           "format" = " ";
           "on-click" = "pkill rofi || rofi -show drun";
-          "tooltip" = false;
-        };
-        "custom/cava-internal" = {
-          "exec" = "sleep 1s && cava-internal";
           "tooltip" = false;
         };
         "pulseaudio" = {

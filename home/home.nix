@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./programs
-    ./scripts
     ./themes
   ];
 
@@ -36,6 +35,7 @@
     #utils
     ranger
     qemu
+    powertop
     quickemu
     unzip
     virt-viewer
@@ -50,7 +50,6 @@
     #misc
     pamixer
     appimage-run
-    cava
     btop
     brightnessctl
     iotop

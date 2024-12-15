@@ -14,7 +14,7 @@
     # Monitor
     monitor = DP-1, 3440x1440@144, auto, 1
     
-    monitor = eDP-1, 1920x1200@120, auto, 1
+    monitor = eDP-1, 2880x1800@120, auto, 1.5
       
     xwayland {
       force_zero_scaling = false
@@ -57,8 +57,8 @@
 
     general {
 
-        gaps_in = 5
-        gaps_out = 20
+        gaps_in = 1
+        gaps_out = 0
         border_size = 2
         col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
         col.inactive_border = rgba(595959aa)
@@ -67,7 +67,7 @@
     }
 
     animations {
-        enabled = yes
+        enabled = false
 
         bezier = ease,0.4,0.02,0.21,1
 
@@ -88,7 +88,7 @@
     }
 
     gestures {
-        workspace_swipe = false
+        workspace_swipe = true
     }
 
     # Example windowrule v1
@@ -96,7 +96,10 @@
     # Example windowrule v2
     # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
-    windowrule=float,^(pavucontrol)$
+    windowrule=float,^(org.pulseaudio.pavucontrol)$
+    windowrule=size 40% 30%,^(org.pulseaudio.pavucontrol)$
+    windowrule=move onscreen 100%-w-0 40,^(org.pulseaudio.pavucontrol)$
+
     windowrule=float,^(blueman-manager)$
 
     $mainMod = ALT

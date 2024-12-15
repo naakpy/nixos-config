@@ -19,6 +19,9 @@
   };
 
   services.tlp.enable = true;
+  environment.sessionVariables = {
+    "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
+  };
 
   programs.hyprland.enable = true;
   xdg.portal = {

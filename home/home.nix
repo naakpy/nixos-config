@@ -46,11 +46,12 @@
     tree
     hyprshot
     openvpn
+    btop
 
     #misc
     pamixer
     appimage-run
-    btop
+    rofi-wayland
     brightnessctl
     iotop
     tokyo-night-gtk

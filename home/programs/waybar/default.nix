@@ -133,13 +133,11 @@
           "clock"
         ];
         modules-right = [
+          "tray"
           "pulseaudio"
           "backlight"
-          "memory"
           "cpu"
-          "network"
-          "custom/powermenu"
-          "tray"
+          "battery"
         ];
         "custom/launcher" = {
           "format" = " ";
@@ -153,7 +151,8 @@
           "format-icons" = {
             "default" = [ "" "" "" ];
           };
-          "on-click" = "pamixer -t";
+          "on-click" = "pkill pavucontrol || pavucontrol";
+          "on-click-right" = "pamixer -t";
           "tooltip" = false;
         };
         "clock" = {
@@ -187,8 +186,8 @@
           "tooltip" = false;
         };
         "tray" = {
-          "icon-size" = 15;
-          "spacing" = 5;
+          "icon-size" = 25;
+          "spacing" = 10;
         };
       }];
     };

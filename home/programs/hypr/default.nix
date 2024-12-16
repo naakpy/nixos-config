@@ -12,8 +12,12 @@
     extraConfig = ''
 
     # Monitor
-    monitor = DP-1, 3440x1440@144, auto, 1
     
+    monitor = DP-1, 3440x1440@144, 0x0, 1
+    monitor = DP-2, 2560x1440@144, -1440x-850, 1, transform, 1
+    monitor = DP-3, 2560x1440@144, 3440x-850, 1, transform, 3
+
+
     monitor = eDP-1, 2880x1800@120, auto, 1.5
       
     xwayland {
@@ -34,7 +38,7 @@
 
     source = /home/kaan/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
-    exec = sleep 0.5 && swww img ~/nixos-config/home/wallpapers/wallpaper.png
+    exec = sleep 0.5 && swww img --resize fill ~/nixos-config/home/wallpapers/wallpaper.png
 
     # Set en layout at startup
 

@@ -34,6 +34,7 @@
     digikam
     spice
     jellyfin-media-player
+    super-slicer-latest
 
     #utils
     ranger

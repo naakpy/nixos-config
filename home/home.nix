@@ -31,6 +31,12 @@
     spotify-player
     signal-desktop
     digikam
+    spice
+
+    #htb
+    ffuf
+    burpsuite
+    nmap
 
     #utils
     ranger
@@ -49,6 +55,7 @@
     btop
 
     #misc
+    python3
     pamixer
     appimage-run
     rofi-wayland

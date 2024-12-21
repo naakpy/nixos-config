@@ -32,7 +32,7 @@
     signal-desktop
     digikam
     spice
-    jellyfin-web
+    jellyfin-media-player
 
     #htb
     ffuf

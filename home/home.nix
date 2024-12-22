@@ -28,16 +28,12 @@
     #user apps
     vscode
     vesktop
+    qFlipper
     spotify-player
     signal-desktop
     digikam
     spice
     jellyfin-media-player
-
-    #htb
-    ffuf
-    burpsuite
-    nmap
 
     #utils
     ranger
@@ -57,6 +53,7 @@
 
     #misc
     python3
+    ffmpeg
     pamixer
     appimage-run
     rofi-wayland

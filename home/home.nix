@@ -38,6 +38,7 @@
 
     #utils
     ranger
+    dnsutils
     qemu
     powertop
     quickemu

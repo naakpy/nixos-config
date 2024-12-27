@@ -35,6 +35,7 @@
     spice
     jellyfin-media-player
     super-slicer-latest
+    jellyfin-media-player
 
     #utils
     ranger
@@ -52,6 +53,7 @@
     hyprshot
     openvpn
     btop
+    ffmpeg
 
     #misc
     python3

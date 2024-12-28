@@ -17,6 +17,7 @@
       kaan = import ../home/home.nix;
     };
   };
+  hardware.flipperzero.enable = true;
 
   services.tlp.enable = true;
   environment.sessionVariables = {

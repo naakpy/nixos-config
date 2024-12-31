@@ -24,7 +24,7 @@
       ];
       bookmarks = {};
       settings = {
-        "browser.startup.homepage" = "https://home.kaan.ovh";
+        "browser.startup.homepage" = "https://home.doyurur.xyz";
 
         # Disable irritating first-run stuff
         "browser.disableResetPrompt" = true;

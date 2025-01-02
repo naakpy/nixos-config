@@ -86,7 +86,7 @@ fonts.packages = with pkgs; [
   fira-code-symbols
   mplus-outline-fonts.githubRelease
   proggyfonts
-  nerd-fonts.fira-code
+  nerdfonts
 ];
 
   # rtkit is optional but recommended

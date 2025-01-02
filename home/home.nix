@@ -57,7 +57,6 @@
     ffmpeg
 
     #misc
-    python3
     openssl
     ffmpeg
     pamixer

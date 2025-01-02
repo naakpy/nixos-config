@@ -27,6 +27,7 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    firefox
     vesktop
     qFlipper
     spotify-player

@@ -1,7 +1,6 @@
 {
   imports = [
     ./hypr
-    ./firefox
     ./dunst
     ./waybar
     ./kitty

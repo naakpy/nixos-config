@@ -57,7 +57,6 @@
     ffmpeg
 
     #misc
-    openssl
     ffmpeg
     pamixer
     appimage-run

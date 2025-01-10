@@ -34,9 +34,7 @@
     signal-desktop
     digikam
     spice
-    jellyfin-media-player
     super-slicer-latest
-    jellyfin-media-player
 
     #utils
     ranger
@@ -52,9 +50,7 @@
     pavucontrol
     tree
     hyprshot
-    openvpn
     btop
-    ffmpeg
 
     #misc
     ffmpeg
@@ -63,7 +59,6 @@
     rofi-wayland
     brightnessctl
     iotop
-    tokyo-night-gtk
     swww
   ]);
 

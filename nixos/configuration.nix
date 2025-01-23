@@ -10,7 +10,10 @@
     inputs.home-manager.nixosModules.home-manager
     ./greetd.nix
   ];
-  
+
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "kaan" ];
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
@@ -18,10 +21,15 @@
     };
   };
   hardware.flipperzero.enable = true;
-
+  
   services.tlp.enable = true;
   environment.sessionVariables = {
     "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  services.xserver = {
+    dpi = 242;
   };
 
   programs.hyprland.enable = true;
@@ -76,7 +84,6 @@
   };
 
   time.timeZone = "Europe/Paris";
-
 fonts.packages = with pkgs; [
   noto-fonts
   noto-fonts-cjk-sans
@@ -85,6 +92,7 @@ fonts.packages = with pkgs; [
   fira-code
   fira-code-symbols
   mplus-outline-fonts.githubRelease
+  dina-font
   proggyfonts
   nerdfonts
 ];

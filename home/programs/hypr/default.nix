@@ -71,7 +71,7 @@
     }
 
     animations {
-        enabled = false
+        enabled = true
 
         bezier = ease,0.4,0.02,0.21,1
 

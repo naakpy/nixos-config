@@ -22,7 +22,7 @@
                    color: rgb(26, 24, 38);
                  }
                }
-               .warning, .critical, .urgent {
+               .urgent {
                  animation-name: blink_red;
                  animation-duration: 1s;
                  animation-timing-function: linear;
@@ -41,27 +41,6 @@
                  padding-left:8px;
                  border: 2px none #33ccff;
                }
-         #workspaces {
-                 padding-left: 0px;
-                 padding-right: 4px;
-               }
-         #workspaces button {
-                 padding-top: 5px;
-                 padding-bottom: 5px;
-                 padding-left: 6px;
-                 padding-right: 6px;
-               }
-         #workspaces button.active {
-                 background-color: rgb(181, 232, 224);
-                 color: rgb(26, 24, 38);
-               }
-         #workspaces button.urgent {
-                 color: rgb(26, 24, 38);
-               }
-         #workspaces button:hover {
-                 background-color: rgb(248, 189, 150);
-                 color: rgb(26, 24, 38);
-               }
                tooltip {
                  background: rgb(48, 45, 65);
                }
@@ -74,15 +53,10 @@
                  padding-right: 6px;
                  color: #7ebae4;
                }
-         #mode, #clock, #memory, #temperature,#cpu, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu {
+         #mode, #clock, #memory, #temperature, #cpu, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu {
                  padding-left: 10px;
                  padding-right: 10px;
                }
-               /* #mode { */
-               /* 	margin-left: 10px; */
-               /* 	background-color: rgb(248, 189, 150); */
-               /*     color: rgb(26, 24, 38); */
-               /* } */
          #memory {
                  color: rgb(181, 232, 224);
                }
@@ -92,9 +66,6 @@
          #clock {
                  color: rgb(217, 224, 238);
                }
-        /* #idle_inhibitor {
-                 color: rgb(221, 182, 242);
-               }*/
          #custom-wall {
                  color: #33ccff;
             }
@@ -120,6 +91,22 @@
          #tray {
                  padding-right: 8px;
                  padding-left: 10px;
+               }
+         #battery {
+                 color: rgb(144, 238, 144);
+               }
+         #battery.warning {
+                 color: rgb(255, 223, 0);
+               }
+         #battery.critical {
+                 color: rgb(255, 69, 58);
+               }
+         #battery.urgent {
+                 animation-name: blink_red;
+                 animation-duration: 1s;
+                 animation-timing-function: linear;
+                 animation-iteration-count: infinite;
+                 animation-direction: alternate;
                }
       '';
       settings = [{
@@ -180,6 +167,16 @@
           "interval" = 1;
           "tooltip" = false;
         };
+        "battery" = {
+          "interval" = 30;
+          "format" = "󰁹 {capacity}%";
+          "format-charging" = "󰂄 {capacity}%";
+          "states" = {
+            "warning" = 30;
+            "critical" = 10;
+            "urgent" = 5;
+          };
+        };
         "custom/powermenu" = {
           "format" = "";
           "on-click" = "pkill rofi || rofi-power-menu";
@@ -192,3 +189,4 @@
       }];
     };
 }
+

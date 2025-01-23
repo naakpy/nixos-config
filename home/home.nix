@@ -23,6 +23,16 @@
     username = "kaan";
     homeDirectory = "/home/kaan";
   };
+  
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      text-scaling-factor = 0.8;
+    };
+  };
+
+  xresources.properties = {
+    "Xcursor.size" = 24;
+  };
 
   home.packages = (with pkgs; [
     #user apps
@@ -35,6 +45,10 @@
     digikam
     spice
     super-slicer-latest
+    ghidra
+
+    #reverse
+    ida-free
 
     #utils
     ranger

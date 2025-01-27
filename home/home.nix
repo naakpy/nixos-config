@@ -37,6 +37,8 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    multivnc
+    dbeaver-bin
     firefox
     vesktop
     qFlipper

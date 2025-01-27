@@ -34,6 +34,11 @@
     "Xcursor.size" = 24;
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   home.packages = (with pkgs; [
     #user apps
     vscode

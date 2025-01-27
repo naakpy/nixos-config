@@ -40,6 +40,10 @@
     hashcat
     multivnc
     dbeaver-bin
+    easyeffects
+    runelite
+    lutris
+    wine
     firefox
     vesktop
     qFlipper

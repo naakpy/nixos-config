@@ -22,6 +22,12 @@
       kaan = import ../home/home.nix;
     };
   };
+  programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
   hardware.flipperzero.enable = true;
   
   services.tlp.enable = true;
@@ -34,6 +40,7 @@
     dpi = 242;
   };
 
+  services.flatpak.enable = true;
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
@@ -76,12 +83,15 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
   users.users = {
     kaan = {
       initialPassword = "password";
       isNormalUser = true;
       openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2J9YKlcGlhny06zjSme57qFOGarY/F0X9VvulUPrhm kaan@doyurur.xyz"];
-      extraGroups = [ "wheel" "networkmanager" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "docker" "vboxusers"];
     };
   };
 

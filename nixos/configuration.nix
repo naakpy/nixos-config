@@ -12,7 +12,9 @@
   ];
 
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   users.extraGroups.docker.members = [ "kaan" ];
+  users.extraGroups.vboxusers.members = [ "kaan" ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

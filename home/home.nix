@@ -37,6 +37,7 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    hashcat
     multivnc
     dbeaver-bin
     firefox

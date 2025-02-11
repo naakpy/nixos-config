@@ -130,6 +130,7 @@ fonts.packages = with pkgs; [
   };
 
   services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "client";
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

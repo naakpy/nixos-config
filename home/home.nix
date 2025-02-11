@@ -43,6 +43,7 @@
     #user apps
     vscode
     hashcat
+    openvpn
     multivnc
     dbeaver-bin
     easyeffects

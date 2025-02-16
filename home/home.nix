@@ -42,6 +42,8 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    kubectl
+    k9s
     hashcat
     openvpn
     multivnc

@@ -21,6 +21,7 @@
 
       start_ssh_agent
       export NIXOS_OZONE_WL=1
+      export KUBECONFIG=~/.kube/config
       alias s="kitten ssh"
   '';
         };

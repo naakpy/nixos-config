@@ -111,7 +111,7 @@
 
 
     bind = $mainMod, RETURN, exec, kitty
-    bind = $mainMod, G, exec, firefox 
+    bind = $mainMod, G, exec, librewolf 
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,
     bind = $mainMod, V, togglefloating,

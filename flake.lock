@@ -8,13 +8,13 @@
       "locked": {
         "lastModified": 1725751820,
         "narHash": "sha256-cEzHceyyJpZ1+afZGJ5pGpU0alpzxOMgY0NdPnfI22c=",
-        "owner": "omarcresp",
+        "owner": "naakpy",
         "repo": "cursor-flake",
         "rev": "e2b637f13890eef0e1c7b95efe9102c687fa2bd9",
         "type": "github"
       },
       "original": {
-        "owner": "omarcresp",
+        "owner": "naakpy",
         "ref": "main",
         "repo": "cursor-flake",
         "type": "github"
@@ -77,11 +77,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1740743217,
-        "narHash": "sha256-brsCRzLqimpyhORma84c3W2xPbIidZlIc3JGIuQVSNI=",
+        "lastModified": 1740865531,
+        "narHash": "sha256-h00vGIh/jxcGl8aWdfnVRD74KuLpyY3mZgMFMy7iKIc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b27ba4eb322d9d2bf2dc9ada9fd59442f50c8d7c",
+        "rev": "5ef6c425980847c78a80d759abc476e941a9bf42",
         "type": "github"
       },
       "original": {

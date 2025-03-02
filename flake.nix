@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Additional inputs
-    cursor.url = "github:omarcresp/cursor-flake/main";
+    cursor.url = "github:naakpy/cursor-flake/main";
   };
 
   outputs = { self, nixpkgs, home-manager, cursor, ... } @ inputs: let

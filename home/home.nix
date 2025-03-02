@@ -42,8 +42,11 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    prismlauncher
+    terraform
     kubectl
     k9s
+    zulu8
     hashcat
     openvpn
     multivnc

@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1725751820,
-        "narHash": "sha256-cEzHceyyJpZ1+afZGJ5pGpU0alpzxOMgY0NdPnfI22c=",
+        "lastModified": 1740945291,
+        "narHash": "sha256-s2zbohA+dQ7dkln1laEzGBVfGseH/4KdFJ3PZ/paBTk=",
         "owner": "naakpy",
         "repo": "cursor-flake",
-        "rev": "e2b637f13890eef0e1c7b95efe9102c687fa2bd9",
+        "rev": "41e5b1b032d95392792ca9db107c5b8ed1a51315",
         "type": "github"
       },
       "original": {

@@ -42,6 +42,8 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    go
+    ansible
     prismlauncher
     terraform
     kubectl

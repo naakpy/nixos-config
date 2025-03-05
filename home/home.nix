@@ -42,6 +42,7 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    talosctl
     go
     ansible
     prismlauncher

@@ -58,7 +58,6 @@
     runelite
     lutris
     wine
-    librewolf
     vesktop
     qFlipper
     spotify-player

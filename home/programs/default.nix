@@ -7,5 +7,6 @@
     ./vim
     ./zsh
     ./git
+    ./librewolf
   ];
 }

@@ -42,6 +42,7 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    kubernetes-helm
     talosctl
     go
     ansible

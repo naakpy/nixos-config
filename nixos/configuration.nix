@@ -22,6 +22,7 @@
       kaan = import ../home/home.nix;
     };
   };
+
   programs.steam = {
   enable = true;
   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -130,6 +131,22 @@ fonts.packages = with pkgs; [
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "client";
 
+  networking.wg-quick.interfaces = {
+    wg0 = {
+      address = [ "10.0.0.2/24" ];
+      dns = [ "192.168.1.254" ];
+      privateKeyFile = "/root/wireguard-keys/privatekey";
+
+      peers = [
+        {
+          publicKey = "jEXcaYPTsO4qYPhII3mKN3djTiXxlcYS0fyF/fu6yTI=";
+          allowedIPs = [ "0.0.0.0/0" ];
+          endpoint = "vpn.doyurur.xyz:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

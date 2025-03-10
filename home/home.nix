@@ -43,6 +43,8 @@
     #user apps
     vscode
     kubernetes-helm
+    protonvpn-gui
+    gnome-keyring
     talosctl
     go
     ansible

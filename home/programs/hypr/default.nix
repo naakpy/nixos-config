@@ -21,7 +21,7 @@
     monitor = eDP-1, 2880x1800@120, auto, 1.5
       
     xwayland {
-      force_zero_scaling = false
+      force_zero_scaling = true
     }
     
     

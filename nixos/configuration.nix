@@ -13,6 +13,10 @@
 
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.vmware.host.enable = true;
+  services.xserver.videoDrivers = [ "vmware" ];
+  virtualisation.vmware.guest.enable = true;
+
   users.extraGroups.docker.members = [ "kaan" ];
   users.extraGroups.vboxusers.members = [ "kaan" ];
 

@@ -99,6 +99,11 @@
   };
 
   time.timeZone = "Europe/Paris";
+  fonts.fontconfig.antialias = true;
+  fonts.fontconfig.hinting.enable = true;
+  fonts.fontconfig.hinting.style = "full";
+  fonts.fontconfig.allowBitmaps = false;
+
 fonts.packages = with pkgs; [
   noto-fonts
   noto-fonts-cjk-sans

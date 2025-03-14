@@ -28,6 +28,8 @@
             persistentKeepalive = 25;
           }
         ];
+        postUp = "iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE";
+        preDown = "iptables -t nat -D POSTROUTING -o wg0 -j MASQUERADE";
       };
     };
   };

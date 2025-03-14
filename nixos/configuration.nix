@@ -105,7 +105,8 @@ fonts.packages = with pkgs; [
   mplus-outline-fonts.githubRelease
   dina-font
   proggyfonts
-  nerdfonts
+  nerd-fonts._0xproto
+  nerd-fonts.droid-sans-mono
 ];
 
   # rtkit is optional but recommended
@@ -119,32 +120,11 @@ fonts.packages = with pkgs; [
     #jack.enable = true;
   };
 
-
   services.openssh = {
     enable = false;
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
-    };
-  };
-
-  services.tailscale.enable = true;
-  services.tailscale.useRoutingFeatures = "client";
-
-  networking.wg-quick.interfaces = {
-    wg0 = {
-      address = [ "10.0.0.2/24" ];
-      dns = [ "192.168.1.254" ];
-      privateKeyFile = "/root/wireguard-keys/privatekey";
-
-      peers = [
-        {
-          publicKey = "jEXcaYPTsO4qYPhII3mKN3djTiXxlcYS0fyF/fu6yTI=";
-          allowedIPs = [ "0.0.0.0/0" ];
-          endpoint = "vpn.doyurur.xyz:51820";
-          persistentKeepalive = 25;
-        }
-      ];
     };
   };
 

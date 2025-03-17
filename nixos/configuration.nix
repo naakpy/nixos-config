@@ -11,6 +11,9 @@
     ./greetd.nix
   ];
 
+  networking.enableIPv6 = false;
+  boot.kernel.sysctl."net.ipv6.conf.wlp2s0.disable_ipv6" = true;
+
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.vmware.host.enable = true;

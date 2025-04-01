@@ -42,6 +42,9 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    p7zip
+    nmap
+    joplin-desktop
     kubernetes-helm
     protonvpn-gui
     gnome-keyring

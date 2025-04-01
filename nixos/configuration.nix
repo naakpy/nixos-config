@@ -45,10 +45,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  services.xserver = {
-    dpi = 242;
-  };
-
   services.flatpak.enable = true;
   programs.hyprland.enable = true;
   xdg.portal = {
@@ -103,34 +99,15 @@
   };
 
   time.timeZone = "Europe/Paris";
-  fonts.fontconfig.antialias = true;
-  fonts.fontconfig.hinting.enable = true;
-  fonts.fontconfig.hinting.style = "full";
-  fonts.fontconfig.allowBitmaps = false;
 
-fonts.packages = with pkgs; [
-  noto-fonts
-  noto-fonts-cjk-sans
-  noto-fonts-emoji
-  liberation_ttf
-  fira-code
-  fira-code-symbols
-  mplus-outline-fonts.githubRelease
-  dina-font
-  proggyfonts
-  nerd-fonts._0xproto
-  nerd-fonts.droid-sans-mono
-];
+  fonts.packages = with pkgs; [ nerdfonts ];
 
-  # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
 
   services.openssh = {

@@ -100,7 +100,7 @@
 
   time.timeZone = "Europe/Paris";
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
 
   security.rtkit.enable = true;
   services.pipewire = {

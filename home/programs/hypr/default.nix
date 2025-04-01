@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ 
-    ./hyprland-environment.nix
-  ];
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -20,11 +16,6 @@
 
     monitor = eDP-1, 2880x1800@120, auto, 1.5
       
-    xwayland {
-      force_zero_scaling = true
-    }
-    
-    
     misc {
       disable_splash_rendering = true
       disable_hyprland_logo = true

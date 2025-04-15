@@ -42,6 +42,8 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    dotnet-sdk_6
+    noisetorch
     p7zip
     nmap
     joplin-desktop

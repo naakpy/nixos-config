@@ -91,12 +91,6 @@
     # Example windowrule v2
     # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
-    windowrule=float,^(org.pulseaudio.pavucontrol)$
-    windowrule=size 40% 30%,^(org.pulseaudio.pavucontrol)$
-    windowrule=move onscreen 100%-w-0 40,^(org.pulseaudio.pavucontrol)$
-
-    windowrule=float,^(blueman-manager)$
-
     $mainMod = ALT
     bind = $mainMod, F, fullscreen,
 

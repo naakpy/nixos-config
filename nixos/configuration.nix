@@ -17,9 +17,6 @@
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
-  virtualisation.vmware.host.enable = true;
-  services.xserver.videoDrivers = [ "vmware" ];
-  virtualisation.vmware.guest.enable = true;
 
   users.extraGroups.docker.members = [ "kaan" ];
   users.extraGroups.vboxusers.members = [ "kaan" ];
@@ -100,7 +97,7 @@
 
   time.timeZone = "Europe/Paris";
 
-  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
+  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   security.rtkit.enable = true;
   services.pipewire = {

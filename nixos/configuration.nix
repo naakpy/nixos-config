@@ -14,6 +14,13 @@
   networking.enableIPv6 = false;
   boot.kernel.sysctl."net.ipv6.conf.wlp2s0.disable_ipv6" = true;
 
+  security.wrappers.sunshine = {
+  source = "${pkgs.sunshine}/bin/sunshine";
+  capabilities = "cap_sys_admin+ep";
+  owner = "root";
+  group = "root";
+  permissions = "0755";
+  };
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];

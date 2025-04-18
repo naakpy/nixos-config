@@ -42,7 +42,7 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
-    dotnet-sdk_6
+    sunshine
     noisetorch
     p7zip
     nmap
@@ -70,7 +70,6 @@
     qFlipper
     spotify-player
     signal-desktop
-    digikam
     spice
     super-slicer-latest
     ghidra

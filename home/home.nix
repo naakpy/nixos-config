@@ -30,45 +30,45 @@
   };
 
   home.packages = (with pkgs; [
-    #user apps
+    # Development Tools
     vscode
     code-cursor
-    sunshine
-    noisetorch
-    p7zip
-    nmap
-    joplin-desktop
-    kubernetes-helm
-    protonvpn-gui
-    gnome-keyring
-    talosctl
     go
-    ansible
-    prismlauncher
+    zulu8
+    dbeaver-bin
     terraform
+    ansible
+
+    # Kubernetes & Cloud Tools
+    kubernetes-helm
     kubectl
     k9s
-    zulu8
-    hashcat
+    talosctl
+
+    # Security & VPN
+    gnome-keyring
     openvpn
-    multivnc
-    dbeaver-bin
-    easyeffects
+    hashcat
+    nmap
+
+    # Gaming & Entertainment
+    sunshine
+    prismlauncher
     runelite
     lutris
     wine
     vesktop
-    qFlipper
     spotify-player
     signal-desktop
-    spice
-    super-slicer-latest
-    ghidra
 
-    #reverse
-    ida-free
+    # Audio & Video Tools
+    noisetorch
+    easyeffects
+    ffmpeg
+    pamixer
+    pavucontrol
 
-    #utils
+    # System Utilities
     ranger
     dnsutils
     qemu
@@ -79,19 +79,28 @@
     jq
     wget
     curl
-    pavucontrol
     tree
     hyprshot
     btop
-
-    #misc
-    ffmpeg
-    pamixer
-    appimage-run
-    rofi-wayland
-    brightnessctl
     iotop
+    p7zip
+    brightnessctl
+
+    # Desktop Environment
+    rofi-wayland
     swww
+
+    # Reverse Engineering & Analysis
+    ghidra
+    ida-free
+
+    # Miscellaneous
+    joplin-desktop
+    multivnc
+    qFlipper
+    spice
+    super-slicer-latest
+    appimage-run
   ]);
 
   programs.home-manager.enable = true;

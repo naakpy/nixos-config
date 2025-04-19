@@ -13,6 +13,18 @@
 
   networking.enableIPv6 = false;
   boot.kernel.sysctl."net.ipv6.conf.wlp2s0.disable_ipv6" = true;
+  
+  networking.firewall.allowedTCPPorts = [
+    47984
+    47989
+    48010
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    47998 47999 48000
+    48002
+    48010
+  ];
 
   security.wrappers.sunshine = {
   source = "${pkgs.sunshine}/bin/sunshine";

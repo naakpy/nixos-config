@@ -24,16 +24,6 @@
     homeDirectory = "/home/kaan";
   };
   
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      text-scaling-factor = 0.8;
-    };
-  };
-
-  xresources.properties = {
-    "Xcursor.size" = 24;
-  };
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -42,6 +32,7 @@
   home.packages = (with pkgs; [
     #user apps
     vscode
+    code-cursor
     sunshine
     noisetorch
     p7zip

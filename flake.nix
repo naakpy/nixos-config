@@ -5,12 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Additional inputs
-    cursor.url = "github:naakpy/cursor-flake/main";
   };
 
-  outputs = { self, nixpkgs, home-manager, cursor, ... } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations = {
@@ -20,9 +17,6 @@
           ./nixos/configuration.nix
           ./hosts/nixos-pc/host.nix
           ./hosts/nixos-pc/hardware-configuration.nix
-          ({ pkgs, ... }: {
-            environment.systemPackages = [ cursor.packages.${pkgs.system}.default ];
-          })
         ];
       };
 
@@ -32,9 +26,6 @@
           ./nixos/configuration.nix
           ./hosts/nixos-laptop/host.nix
           ./hosts/nixos-laptop/hardware-configuration.nix
-          ({ pkgs, ... }: {
-            environment.systemPackages = [ cursor.packages.${pkgs.system}.default ];
-          })
         ];
       };
     };

@@ -34,6 +34,14 @@
     vscode
     bluez
     code-cursor
+    minikube
+    p7zip
+    nmap
+    joplin-desktop
+    kubernetes-helm
+    protonvpn-gui
+    gnome-keyring
+    talosctl
     go
     zulu8
     dbeaver-bin

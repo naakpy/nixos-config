@@ -36,11 +36,21 @@
   };
  
   virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings = {
+    live-restore = false;
+  };
+
   virtualisation.virtualbox.host.enable = true;
   boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
 
   users.extraGroups.docker.members = [ "kaan" ];
   users.extraGroups.vboxusers.members = [ "kaan" ];
+
+  networking.firewall = {
+  enable = true;
+  allowedTCPPorts = [ 4242 ];
+  };
+
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

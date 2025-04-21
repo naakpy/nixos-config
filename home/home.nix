@@ -32,6 +32,7 @@
   home.packages = (with pkgs; [
     # Development Tools
     vscode
+    bluez
     code-cursor
     go
     zulu8
@@ -50,9 +51,9 @@
     openvpn
     hashcat
     nmap
+    tcpdump
 
     # Gaming & Entertainment
-    sunshine
     prismlauncher
     runelite
     lutris
@@ -99,6 +100,7 @@
     multivnc
     qFlipper
     spice
+    nix-prefetch
     super-slicer-latest
     appimage-run
   ]);

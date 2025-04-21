@@ -40,7 +40,9 @@
         kb_model =
         kb_options =
         kb_rules =
-
+        
+        kb_options = altwin:swap_alt_win
+          
         follow_mouse = 1
 
         touchpad {
@@ -91,7 +93,7 @@
     # Example windowrule v2
     # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
-    $mainMod = ALT
+    $mainMod = SUPER
     bind = $mainMod, F, fullscreen,
 
 

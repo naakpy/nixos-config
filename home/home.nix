@@ -52,6 +52,7 @@
     hashcat
     nmap
     tcpdump
+    ethtool
 
     # Gaming & Entertainment
     prismlauncher

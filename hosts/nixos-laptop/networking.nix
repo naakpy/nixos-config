@@ -7,4 +7,12 @@
     enable = true;
     clientIP = "10.0.0.2";
   };
+
+  services.openvpn.servers = {
+    LabVPN  = {
+      config = '' config /root/openvpn/LabVPN.ovpn '';
+      autoStart = false;
+      updateResolvConf = true;
+    };
+  };
 } 

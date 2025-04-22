@@ -1,3 +1,5 @@
+{ config, lib, pkgs, ... }:
+
 {
   imports = [
     ../../nixos/networking/wireguard-base.nix
@@ -8,7 +10,24 @@
     clientIP = "10.0.0.3";
   };
 
-  networking.interfaces.enp10s0.wakeOnLan.enable = true;
+  # The services doesn't actually work atm, define an additional service
+  # see https://github.com/NixOS/nixpkgs/issues/91352
+  systemd.services.wakeonlan = {
+    description = "Reenable wake on lan every boot";
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "simple";
+      RemainAfterExit = "true";
+      ExecStart = "${pkgs.writeShellScript "wakeonlan" ''
+        while ! ${pkgs.iproute2}/bin/ip link show enp10s0 | grep -q "state UP"; do
+          sleep 1
+        done
+
+        ${pkgs.ethtool}/sbin/ethtool -s enp10s0 wol g
+      ''}";
+    };
+    wantedBy = [ "default.target" ];
+  };
 
   services.sunshine = {
     enable = true;
@@ -30,7 +49,6 @@
   };
 
   networking.firewall = {
-  enable = true;
-  allowedTCPPorts = [ 4242 ];
+    enable = true;
   };
 } 

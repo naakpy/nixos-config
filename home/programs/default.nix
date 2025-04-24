@@ -8,5 +8,6 @@
     ./zsh
     ./git
     ./librewolf
+    ./easyeffects
   ];
 }

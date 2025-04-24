@@ -72,7 +72,6 @@
 
     # Audio & Video Tools
     noisetorch
-    easyeffects
     ffmpeg
     pamixer
     pavucontrol

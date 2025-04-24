@@ -39,7 +39,6 @@
     nmap
     joplin-desktop
     kubernetes-helm
-    protonvpn-gui
     gnome-keyring
     talosctl
     go

@@ -8,6 +8,11 @@
     clientIP = "10.0.0.2";
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [ 4242 ];
+    allowedUDPPorts = [ 4242 ];
+  };
+
   services.openvpn.servers = {
     LabVPN  = {
       config = '' config /root/openvpn/LabVPN.ovpn '';

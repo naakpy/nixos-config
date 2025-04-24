@@ -103,6 +103,9 @@
     ghidra
     ida-free
 
+    feh
+    nemo
+
     # Miscellaneous
     joplin-desktop
     multivnc

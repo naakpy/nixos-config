@@ -1,6 +1,6 @@
 {
   imports = [
-    ../../nixos/networking/wireguard-base.nix
+    ../../nixos/vpn.nix
   ];
 
   networking.wireguard-home = {

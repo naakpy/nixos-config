@@ -4,6 +4,7 @@
     preset = "in-background";
     extraPresets = {
       in-background = {
+        #https://github-wiki-see.page/m/wwmm/easyeffects/wiki/Community-Presets
         input = {
           blocklist = [];
           "plugins_order" = [

@@ -10,12 +10,17 @@
     inputs.home-manager.nixosModules.home-manager
     ./greetd.nix
     ./virtualisation.nix
-    ./ipv6.nix
     ./steam.nix
     ./bluetooth.nix
     ./fonts.nix
     ./audio.nix
+    ./hyprland.nix
+    ./networking.nix
   ];
+
+  hardware.flipperzero.enable = true;
+  services.tlp.enable = true;
+  services.flatpak.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
@@ -23,18 +28,6 @@
       kaan = import ../home/home.nix;
     };
   };
-
-  
-  hardware.flipperzero.enable = true;
-  services.tlp.enable = true;
-  services.flatpak.enable = true;
-  
-  environment.sessionVariables = {
-    "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
-    NIXOS_OZONE_WL = "1";
-  };
-
-
 
   nixpkgs = {
     overlays = [];
@@ -60,15 +53,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  security.pam.services.hyprlock = {};
   
-  networking.networkmanager.enable = true;
-  environment.systemPackages = [
-    pkgs.networkmanagerapplet
-  ];
-
-
-
   users.users = {
     kaan = {
       initialPassword = "password";

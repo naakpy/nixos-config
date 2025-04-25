@@ -8,14 +8,22 @@
   imports = [
     ./programs
     ./themes
+    inputs.sops-nix.homeManagerModules.sops
   ];
 
   nixpkgs = {
     overlays = [];
     config = {
       allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
+    };
+  };
+
+  sops = {
+    age.keyFile = "/home/kaan/.config/sops/age/keys.txt";
+    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFormat = "yaml";
+    secrets.test = {
+      sopsFile = ./secrets.yml.enc;
     };
   };
 
@@ -30,6 +38,9 @@
   };
 
   home.packages = (with pkgs; [
+
+    ssh-to-age
+    age
     # Development Tools
     vscode
     bluez
@@ -114,6 +125,7 @@
     super-slicer-latest
     appimage-run
   ]);
+
 
   programs.home-manager.enable = true;
 

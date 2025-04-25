@@ -6,7 +6,7 @@
   ];
 
   networking.wireguard-home = {
-    enable = true;
+    enable = false;
     clientIP = "10.0.0.3";
   };
 

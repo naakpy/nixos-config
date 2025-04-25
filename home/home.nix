@@ -22,9 +22,7 @@
     age.keyFile = "/home/kaan/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
-    secrets.test = {
-      sopsFile = ./secrets.yml.enc;
-    };
+    secrets.wireguard-pc = {};
   };
 
   home = {
@@ -41,6 +39,7 @@
 
     ssh-to-age
     age
+    sops
     # Development Tools
     vscode
     bluez

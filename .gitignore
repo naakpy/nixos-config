@@ -1,3 +1,1 @@
 flake.lock
-*.secrets.yaml
-*.secrets.yml.enc

@@ -10,6 +10,10 @@
         type = lib.types.str;
         description = "The IP address for this Wireguard client";
       };
+      privateKeyPath = lib.mkOption {
+        type = lib.types.str;
+        description = "Path to the SOPS-managed private key file";
+      };
     };
   };
 
@@ -18,7 +22,7 @@
       wg0 = {
         address = [ "${config.networking.wireguard-home.clientIP}/24" ];
         dns = [ "192.168.1.121" ];
-        privateKeyFile = "/root/wireguard-keys/privatekey";
+        privateKeyFile = config.networking.wireguard-home.privateKeyPath;
 
         peers = [
           {

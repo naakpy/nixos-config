@@ -6,6 +6,7 @@
   networking.wireguard-home = {
     enable = true;
     clientIP = "10.0.0.2";
+    privateKeyPath = "/home/kaan/.config/sops-nix/secrets/wireguard-laptop";
   };
 
   networking.firewall = {

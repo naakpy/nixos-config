@@ -6,8 +6,9 @@
   ];
 
   networking.wireguard-home = {
-    enable = false;
+    enable = true;
     clientIP = "10.0.0.3";
+    privateKeyPath = "/home/kaan/.config/sops-nix/secrets/wireguard-pc";
   };
 
   # The services doesn't actually work atm, define an additional service

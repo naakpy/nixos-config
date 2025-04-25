@@ -20,9 +20,16 @@
 
   sops = {
     age.keyFile = "/home/kaan/.config/sops/age/keys.txt";
-    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFile = ../secrets.yaml;
     defaultSopsFormat = "yaml";
-    secrets.wireguard-pc = {};
+    secrets = {
+      wireguard-pc = {
+        path = "%r/wireguard-pc";
+      };
+      wireguard-laptop = {
+        path = "%r/wireguard-laptop";
+      };
+    };
   };
 
   home = {

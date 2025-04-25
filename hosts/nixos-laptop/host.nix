@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./networking.nix
+    ./vpn.nix
   ];
 
   networking.hostName = "nixos-laptop";

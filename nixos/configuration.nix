@@ -9,21 +9,11 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./greetd.nix
+    ./virtualisation.nix
   ];
 
   networking.enableIPv6 = false;
   boot.kernel.sysctl."net.ipv6.conf.wlp2s0.disable_ipv6" = true;
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.daemon.settings = {
-    live-restore = false;
-  };
-
-  virtualisation.virtualbox.host.enable = true;
-  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
-
-  users.extraGroups.docker.members = [ "kaan" ];
-  users.extraGroups.vboxusers.members = [ "kaan" ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

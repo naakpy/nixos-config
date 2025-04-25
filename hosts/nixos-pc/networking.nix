@@ -11,7 +11,7 @@
     privateKeyPath = "/home/kaan/.config/sops-nix/secrets/wireguard-pc";
   };
 
-  # The services doesn't actually work atm, define an additional service
+  # The WOL module doesn't actually work atm, define an additional service
   # see https://github.com/NixOS/nixpkgs/issues/91352
   systemd.services.wakeonlan = {
     description = "Reenable wake on lan every boot";

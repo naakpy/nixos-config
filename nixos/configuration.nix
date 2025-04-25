@@ -10,10 +10,12 @@
     inputs.home-manager.nixosModules.home-manager
     ./greetd.nix
     ./virtualisation.nix
+    ./ipv6.nix
+    ./steam.nix
+    ./bluetooth.nix
+    ./fonts.nix
+    ./audio.nix
   ];
-
-  networking.enableIPv6 = false;
-  boot.kernel.sysctl."net.ipv6.conf.wlp2s0.disable_ipv6" = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
@@ -22,25 +24,17 @@
     };
   };
 
-  programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-  hardware.flipperzero.enable = true;
   
+  hardware.flipperzero.enable = true;
   services.tlp.enable = true;
+  services.flatpak.enable = true;
+  
   environment.sessionVariables = {
     "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
     NIXOS_OZONE_WL = "1";
   };
 
-  services.flatpak.enable = true;
-  programs.hyprland.enable = true;
-  xdg.portal = {
-    enable = true;
-  };
+
 
   nixpkgs = {
     overlays = [];
@@ -72,10 +66,7 @@
   environment.systemPackages = [
     pkgs.networkmanagerapplet
   ];
-  
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
+
 
 
   users.users = {
@@ -89,23 +80,8 @@
 
   time.timeZone = "Europe/Paris";
 
-  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
-  services.openssh = {
-    enable = false;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

@@ -1,5 +1,7 @@
 { pkgs, ... }:
 
+# remove pkgs
+
 {
   boot.kernelParams = [ "kvm.enable_virt_at_load=0" ]; # kernel 6.12 bug fix virtualbox
 

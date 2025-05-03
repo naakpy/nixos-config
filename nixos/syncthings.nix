@@ -6,10 +6,10 @@
 {
   services.syncthing = {
     enable = true;
-    user = "syncthing";
-    group = "syncthing";
-    dataDir = "/var/lib/syncthing";
-    configDir = "/etc/syncthing";
+    user = "kaan";
+    group = "kaan";
+    dataDir = "/home/kaan/syncthing";
+    configDir = "/home/kaan/.config/syncthing";
   };
 }
 

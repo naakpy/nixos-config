@@ -49,6 +49,10 @@
     sops
     # Development Tools
     vscode
+    logseq
+    jmtpfs
+    vlc
+    kdePackages.kdenlive
     bluez
     code-cursor
     minikube

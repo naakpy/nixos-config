@@ -16,6 +16,7 @@
     ./audio.nix
     ./hyprland.nix
     ./networking.nix
+    ./syncthings.nix
   ];
 
   hardware.flipperzero.enable = true;

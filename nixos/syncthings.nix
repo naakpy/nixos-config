@@ -6,10 +6,12 @@
 {
   services.syncthing = {
     enable = true;
-    user = "kaan";
-    group = "kaan";
-    dataDir = "/home/kaan/syncthing";
+    openDefaultPorts = true;
+    dataDir = "/home/kaan/Documents/syncthing";
     configDir = "/home/kaan/.config/syncthing";
+    user = "kaan";
+    group = "users";
+    guiAddress = "0.0.0.0:8384";
   };
 }
 

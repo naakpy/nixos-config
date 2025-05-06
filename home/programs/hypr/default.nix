@@ -15,7 +15,7 @@
 
 
     monitor = eDP-1, 2880x1800@120, auto, 1.5
-      
+    
     misc {
       disable_splash_rendering = true
       disable_hyprland_logo = true

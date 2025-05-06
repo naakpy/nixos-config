@@ -21,11 +21,18 @@
       disable_hyprland_logo = true
     }
 
+    env = HYPRCURSOR_THEME,Bibata-Original-Amber
+    env = HYPRCURSOR_SIZE,20
+    env = XCURSOR_THEME,Bibata-Original-Amber
+    env = XCURSOR_SIZE,20
+
     # Autostart
-    exec-once = hyprctl setcursor Bibata-Modern-Classic 24
+    exec-once = hyprctl setcursor Bibata-Original-Amber 20
     exec-once = dunst
     exec-once = swww-daemon
     exec-once = nm-applet
+    exec-once = gsettings set org.gnome.desktop.interface cursor-theme Bibata-Original-Amber
+    exec-once = gsettings set org.gnome.desktop.interface cursor-size 20
 
     source = /home/kaan/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar

@@ -15,10 +15,12 @@
       "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-JSDateTimeUTC";
       "layout.css.prefers-color-scheme.content-override" = 0;
       
-      "browser.search.defaultenginename" = "DuckDuckGo";
-      "browser.search.selectedEngine" = "DuckDuckGo";
       "browser.urlbar.placeholderName" = "DuckDuckGo";
       "browser.urlbar.placeholderName.private" = "DuckDuckGo";
+      "browser.search.defaultenginename.US" = "DuckDuckGo";
+      "browser.search.defaultenginename" = "DuckDuckGo";
+      "browser.search.selectedEngine" = "DuckDuckGo";
+      "browser.search.order.1" = "DuckDuckGo";
     };
 
     profiles.default = {
@@ -27,18 +29,6 @@
           ublock-origin
           bitwarden
         ];
-      };
-      
-      search = {
-        force = true;
-        default = "ddg";
-        engines = {
-          "ddg" = {
-            urls = [{ template = "https://duckduckgo.com/?q={searchTerms}"; }];
-            icon = "https://duckduckgo.com/favicon.ico";
-            definedAliases = [ "@ddg" ];
-          };
-        };
       };
     };
   };

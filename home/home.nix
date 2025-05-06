@@ -47,6 +47,7 @@
     ssh-to-age
     age
     sops
+    hyprcursor
     # Development Tools
     vscode
     logseq

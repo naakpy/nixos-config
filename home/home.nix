@@ -50,6 +50,7 @@
     hyprcursor
     # Development Tools
     vscode
+    jellyfin-media-player
     logseq
     jmtpfs
     vlc

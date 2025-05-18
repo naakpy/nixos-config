@@ -17,6 +17,7 @@
     ./hyprland.nix
     ./networking.nix
     ./syncthings.nix
+    ./boot.nix
   ];
 
   hardware.flipperzero.enable = true;

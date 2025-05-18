@@ -53,7 +53,6 @@
     upower
     jellyfin-media-player
     logseq
-    jmtpfs
     vlc
     kdePackages.kdenlive
     bluez

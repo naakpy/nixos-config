@@ -1,13 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, gfxResolution ? "1920x1080", ... }: {
   boot = {
 
     plymouth = {
       enable = true;
-      theme = "rings";
+      theme = "blahaj";
       themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
+        plymouth-blahaj-theme
       ];
     };
 
@@ -20,6 +18,12 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
-    loader.timeout = 0;
+    loader = {
+      timeout = 0;
+      grub = {
+        gfxmodeEfi = gfxResolution;
+        gfxmodeBios = gfxResolution;
+      };
+    };
   };
 }

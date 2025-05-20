@@ -51,6 +51,7 @@
     hyprcursor
     # Development Tools
     vscode
+    exegol
     upower
     jellyfin-media-player
     logseq

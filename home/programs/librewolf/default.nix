@@ -13,7 +13,7 @@
       "privacy.resistFingerprinting" = false;
       "privacy.fingerprintingProtection" = true;
       "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-JSDateTimeUTC";
-      "layout.css.prefers-color-scheme.content-override" = 0;
+      # "layout.css.prefers-color-scheme.content-override" = 0;
       
       "browser.urlbar.placeholderName" = "DuckDuckGo";
       "browser.urlbar.placeholderName.private" = "DuckDuckGo";

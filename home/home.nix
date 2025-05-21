@@ -51,6 +51,10 @@
     hyprcursor
     # Development Tools
     vscode
+    android-tools
+    android-udev-rules
+    brave
+    nasm
     exegol
     upower
     jellyfin-media-player

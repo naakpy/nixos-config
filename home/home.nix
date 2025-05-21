@@ -53,7 +53,6 @@
     vscode
     android-tools
     android-udev-rules
-    brave
     nasm
     exegol
     upower

@@ -9,6 +9,10 @@
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.cookies" = false;
       "privacy.clearOnShutdown.downloads" = false;
+      "privacy.clearOnShutdown.cache" = false;
+      "privacy.clearOnShutdown.sessions" = false;
+      "privacy.clearOnShutdown.offlineApps" = false;
+      "privacy.clearOnShutdown.siteSettings" = false;
       "network.cookie.lifetimePolicy" = 0;
       "privacy.resistFingerprinting" = false;
       "privacy.fingerprintingProtection" = true;

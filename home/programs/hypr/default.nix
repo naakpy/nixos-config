@@ -35,8 +35,7 @@
     env = XDG_SESSION_DESKTOP,Hyprland
 
     env = GDK_SCALE,2
-    env = GDK_DPI_SCALE,2
-
+      
     env = HYPRCURSOR_THEME,Bibata-Original-Amber
     env = HYPRCURSOR_SIZE,20
     env = XCURSOR_THEME,Bibata-Original-Amber

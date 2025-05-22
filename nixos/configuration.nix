@@ -18,6 +18,7 @@
     ./networking.nix
     ./syncthings.nix
     ./boot.nix
+    ./xserver.nix
   ];
 
   hardware.flipperzero.enable = true;

@@ -45,6 +45,7 @@
   home.packages = (with pkgs; [
 
     ssh-to-age
+    xorg.xrdb
     thunderbird 
     age
     sops

@@ -21,6 +21,22 @@
       disable_hyprland_logo = true
     }
 
+    xwayland {
+        force_zero_scaling = true
+    }
+
+    env = GDK_BACKEND,wayland,x11,*
+    env = QT_QPA_PLATFORM,wayland;xcb
+    env = SDL_VIDEODRIVER,wayland
+    env = CLUTTER_BACKEND,wayland
+
+    env = XDG_CURRENT_DESKTOP,Hyprland
+    env = XDG_SESSION_TYPE,wayland
+    env = XDG_SESSION_DESKTOP,Hyprland
+
+    env = GDK_SCALE,2
+    env = GDK_DPI_SCALE,2
+
     env = HYPRCURSOR_THEME,Bibata-Original-Amber
     env = HYPRCURSOR_SIZE,20
     env = XCURSOR_THEME,Bibata-Original-Amber

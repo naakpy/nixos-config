@@ -48,7 +48,6 @@
     exec-once = nm-applet
     exec-once = gsettings set org.gnome.desktop.interface cursor-theme Bibata-Original-Amber
     exec-once = gsettings set org.gnome.desktop.interface cursor-size 20
-
     source = /home/kaan/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
     exec = sleep 0.5 && swww img --resize fill ~/nixos-config/home/wallpapers/wallpaper.png

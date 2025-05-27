@@ -52,6 +52,9 @@
     hyprcursor
     # Development Tools
     vscode
+    prusa-slicer
+    rpi-imager
+    orca-slicer
     android-tools
     android-udev-rules
     nasm
@@ -140,7 +143,6 @@
     qFlipper
     spice
     nix-prefetch
-    super-slicer-latest
     appimage-run
   ]);
 

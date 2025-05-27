@@ -5,7 +5,7 @@
     ./waybar
     ./kitty
     ./vim
-    ./zsh
+    ./fish
     ./git
     ./librewolf
     ./easyeffects

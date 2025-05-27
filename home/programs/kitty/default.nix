@@ -6,7 +6,7 @@
 # vim:ft=kitty
 
 #zshell
-shell zsh
+shell fish
 
 # Remove bell
 enable_audio_bell no

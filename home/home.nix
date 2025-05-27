@@ -50,7 +50,6 @@
     age
     sops
     hyprcursor
-    ssh-agents
     # Development Tools
     vscode
     prusa-slicer

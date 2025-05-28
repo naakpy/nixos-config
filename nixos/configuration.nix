@@ -38,11 +38,8 @@
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
 
-        PLATFORM_PROFILE_ON_AC = "balanced";
-        PLATFORM_PROFILE_ON_BAT = "low-power";
-
-        RADEON_DPM_PERF_LEVEL_ON_AC = "auto";
-        RADEON_DPM_PERF_LEVEL_ON_BAT = "low";
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "balanced";
 
         START_CHARGE_THRESH_BAT0 = 65;
         STOP_CHARGE_THRESH_BAT0 = 80;

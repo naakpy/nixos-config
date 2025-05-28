@@ -25,11 +25,21 @@ font_size 12.0
 # Window padding
 window_padding_width 10
 
+# Catppuccin Theme
+## name: Catppuccin
+## author: Pocco81 (https://github.com/Pocco81)
+## license: MIT
+## upstream: https://raw.githubusercontent.com/catppuccin/kitty/main/catppuccin.conf
+## blurb: Soothing pastel theme for the high-spirited!
+
 # The basic colors
-foreground              #CDD6F4
-background              #1E1E2E
-selection_foreground    #1E1E2E
-selection_background    #F5E0DC
+foreground              #E2E0EC
+background              #0B0A10
+selection_foreground    #D9E0EE
+selection_background    #575268
+
+# Transparent Background
+background_opacity 0.8
 
 # Cursor colors
 cursor                  #F5E0DC
@@ -38,62 +48,62 @@ cursor_text_color       #1E1E2E
 # URL underline color when hovering with mouse
 url_color               #F5E0DC
 
-# Kitty window border colors
-active_border_color     #B4BEFE
-inactive_border_color   #6C7086
-bell_border_color       #F9E2AF
+# kitty window border colors
+active_border_color     #C9CBFF
+inactive_border_color   #575268
+bell_border_color       #FAE3B0
 
 # OS Window titlebar colors
 wayland_titlebar_color system
 macos_titlebar_color system
 
 # Tab bar colors
-active_tab_foreground   #11111B
-active_tab_background   #CBA6F7
-inactive_tab_foreground #CDD6F4
-inactive_tab_background #181825
-tab_bar_background      #11111B
+active_tab_foreground   #F5C2E7
+active_tab_background   #575268
+inactive_tab_foreground #D9E0EE
+inactive_tab_background #1E1E2E
+tab_bar_background      #161320
 
 # Colors for marks (marked text in the terminal)
 mark1_foreground #1E1E2E
-mark1_background #B4BEFE
+mark1_background #96CDFB
 mark2_foreground #1E1E2E
-mark2_background #CBA6F7
+mark2_background #F5C2E7
 mark3_foreground #1E1E2E
-mark3_background #74C7EC
+mark3_background #B5E8E0
 
 # The 16 terminal colors
 
 # black
-color0 #45475A
-color8 #585B70
+color0 #2B273F
+color8 #61588E
 
 # red
-color1 #F38BA8
-color9 #F38BA8
+color1 #E97193
+color9 #E97193
 
 # green
-color2  #A6E3A1
-color10 #A6E3A1
+color2  #AAC5A0
+color10 #AAC5A0
 
 # yellow
-color3  #F9E2AF
-color11 #F9E2AF
+color3  #ECE0A8
+color11 #ECE0A8
 
 # blue
-color4  #89B4FA
-color12 #89B4FA
+color4  #A8C5E6
+color12 #A8C5E6
 
 # magenta
-color5  #F5C2E7
-color13 #F5C2E7
+color5  #DFA7E7
+color13 #DFA7E7
 
 # cyan
-color6  #94E2D5
-color14 #94E2D5
+color6  #A8E5E6
+color14 #A8E5E6
 
 # white
-color7  #BAC2DE
-color15 #A6ADC8
+color7  #E2E0EC
+color15 #E2E0EC
   '';
 }

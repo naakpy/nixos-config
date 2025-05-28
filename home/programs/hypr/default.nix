@@ -82,20 +82,35 @@
         col.inactive_border = rgba(595959aa)
 
         layout = dwindle
+      }
+
+    decoration {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+
+    rounding = 5
+    blur {
+        enabled = true
+        size = 7
+        passes = 4
+        new_optimizations = on
+    }
+
+    blurls = lockscreen
+
     }
 
     animations {
-        enabled = false
+    enabled = yes
 
-        bezier = ease,0.4,0.02,0.21,1
+    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+    bezier = myBezier, 0.10, 0.9, 0.1, 1.05
 
-        animation = windows, 1, 3.5, ease, slide
-        animation = windowsOut, 1, 3.5, ease, slide
-        animation = border, 1, 6, default
-        animation = fade, 1, 3, ease
-        animation = workspaces, 1, 3.5, ease
+    animation = windows, 1, 5, myBezier, slide
+    animation = windowsOut, 1, 5, myBezier, slide
+    animation = border, 1, 10, default
+    animation = fade, 1, 7, default
+    animation = workspaces, 1, 6, default
     }
-
     dwindle {
         pseudotile = yes
         preserve_split = yes
@@ -118,7 +133,7 @@
     bind = $mainMod, F, fullscreen,
 
 
-    bind = $mainMod, RETURN, exec, kitty
+    bind = $mainMod, RETURN, exec, kitty -1
     bind = $mainMod, G, exec, librewolf 
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,

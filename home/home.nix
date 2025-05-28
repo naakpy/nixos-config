@@ -52,6 +52,8 @@
     hyprcursor
     # Development Tools
     vscode
+    alacritty
+    nitch
     prusa-slicer
     rpi-imager
     orca-slicer

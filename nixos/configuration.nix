@@ -23,8 +23,6 @@
 
   programs.fish.enable = true;
 
-
-
   hardware.flipperzero.enable = true;
   services.tlp = {
       enable = true;

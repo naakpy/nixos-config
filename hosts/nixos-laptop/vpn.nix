@@ -9,6 +9,11 @@
     privateKeyPath = "/home/kaan/.config/sops-nix/secrets/wireguard-laptop";
   };
 
+  systemd.services.wg-quick-wg0 = {
+    after = [ "user@1000.service" ];
+    requires = [ "user@1000.service" ];
+  };
+
   services.openvpn.servers = {
     LabVPN  = {
       config = '' config /root/openvpn/LabVPN.ovpn '';

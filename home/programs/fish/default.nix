@@ -8,7 +8,6 @@
       
       eval (ssh-agent -c) > /dev/null 2>&1
       ssh-add ~/.ssh/id_home > /dev/null 2>&1
-      nitch
     '';
     plugins = [
       {

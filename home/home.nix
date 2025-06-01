@@ -52,6 +52,7 @@
     hyprcursor
     # Development Tools
     vscode
+    proxmark3
     alacritty
     nitch
     prusa-slicer
@@ -134,7 +135,6 @@
 
     # Reverse Engineering & Analysis
     ghidra
-    ida-free
 
     feh
     nemo

@@ -108,12 +108,28 @@
                  animation-iteration-count: infinite;
                  animation-direction: alternate;
                }
+        #workspaces button {
+                padding: 0 12px;
+                background: transparent;
+                color: #7aa2f7;
+                border-radius: 4px;
+              }
+        #workspaces button.active {
+                background: #7aa2f7;
+                color: #1a1b26;
+                box-shadow: inset 0 -3px #ffffff;
+              }
+        #workspaces button.urgent {
+                background: #f7768e;
+                color: #1a1b26;
+              }
       '';
       settings = [{
         "layer" = "top";
         "position" = "top";
         modules-left = [
           "custom/launcher"
+          "hyprland/workspaces"
           "temperature"
         ];
         modules-center = [
@@ -130,6 +146,20 @@
           "format" = " ";
           "on-click" = "pkill rofi || rofi -show drun";
           "tooltip" = false;
+        };
+        "hyprland/workspaces" = {
+          "format" = "{name}";
+          "on-click" = "activate";
+          "all-outputs" = true;
+          "format-icons" = {
+            "active" = "󰮯";
+            "default" = "󰧞";
+            "empty" = "󰧟";
+          };
+          "sort-by" = "number";
+          "persistent-workspaces" = {
+            "*" = 9;  # Show 9 workspaces by default
+          };
         };
         "pulseaudio" = {
           "scroll-step" = 1;

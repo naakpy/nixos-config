@@ -42,15 +42,14 @@
     env = XCURSOR_SIZE,20
 
     # Autostart
+    exec-once = swww-daemon
     exec-once = hyprctl setcursor Bibata-Original-Amber 20
     exec-once = dunst
-    exec-once = swww-daemon
     exec-once = nm-applet
     exec-once = gsettings set org.gnome.desktop.interface cursor-theme Bibata-Original-Amber
     exec-once = gsettings set org.gnome.desktop.interface cursor-size 20
+    exec-once = waybar
     source = /home/kaan/.config/hypr/colors
-    exec = pkill waybar & sleep 0.5 && waybar
-    exec = sleep 0.5 && swww img --resize fill ~/nixos-config/home/wallpapers/wallpaper.png
 
     # Set en layout at startup
 
@@ -87,7 +86,7 @@
     decoration {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-    rounding = 5
+    rounding = 4
     blur {
         enabled = true
         size = 7

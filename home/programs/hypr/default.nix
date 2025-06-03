@@ -49,6 +49,8 @@
     exec-once = gsettings set org.gnome.desktop.interface cursor-theme Bibata-Original-Amber
     exec-once = gsettings set org.gnome.desktop.interface cursor-size 20
     exec-once = waybar
+    exec-once = hyprctl dispatch exec [workspace 9 silent] kitty spotify_player
+
     source = /home/kaan/.config/hypr/colors
 
     # Set en layout at startup

@@ -52,6 +52,8 @@
     hyprcursor
     # Development Tools
     vscode
+    wlogout
+    playerctl
     proxmark3
     alacritty
     nitch

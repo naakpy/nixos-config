@@ -5,111 +5,246 @@
     enable = true;
 
     style = ''
-      @define-color background #35130d;
-      @define-color foreground #fbe699;
-      @define-color accent     #d44f0a;
-      @define-color secondary  #fb9f3b;
-      @define-color surface    #231c14;
-      @define-color muted      #845c40;
-      @define-color border     #631a0a;
+* {
+  min-height: 0;
+  min-width: 0;
+  font-family: Lexend, "JetBrainsMono NFP";
+  font-size: 16px;
+  font-weight: 600;
+}
 
-      * {
-        font-family: JetBrains Mono, monospace;
-        font-size: 14px;
-        background: @background;
-        color: @foreground;
-      }
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  /* background-color: #1e1e2e; */
+  /* background-color: #181825; */
+  background-color: #11111b;
+  /* background-color: rgba(24, 24, 37, 0.6); */
+}
 
-      #battery.charging {
-        color: @accent;
-      }
-      #battery.critical {
-        color: @secondary;
-      }
+#workspaces button {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  /* background-color: #181825; */
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+}
 
-      window#waybar {
-        padding: 0;
-        margin: 0;
-      }
+#workspaces button:hover {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+#workspaces button.active {
+  background-color: #1e1e2e;
+  color: #89b4fa;
+}
+
+#workspaces button.urgent {
+  background-color: #1e1e2e;
+  color: #f38ba8;
+}
+
+#clock,
+#pulseaudio,
+#custom-logo,
+#custom-power,
+#custom-spotify,
+#custom-notification,
+#cpu,
+#tray,
+#memory,
+#window,
+#mpris {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  /* background-color: #181825; */
+  background-color: #1e1e2e;
+}
+
+#mpris.playing {
+  color: #a6e3a1;
+}
+
+#mpris.paused {
+  color: #9399b2;
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #585b70;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#cpu {
+  color: #94e2d5;
+}
+
+#memory {
+  color: #cba6f7;
+}
+
+#clock {
+  color: #74c7ec;
+}
+
+#clock.simpleclock {
+  color: #89b4fa;
+}
+
+#window {
+  color: #cdd6f4;
+}
+
+#pulseaudio {
+  color: #b4befe;
+}
+
+#pulseaudio.muted {
+  color: #a6adc8;
+}
+
+#custom-logo {
+  color: #89b4fa;
+}
+
+#custom-power {
+  color: #f38ba8;
+}
+
+tooltip {
+  background-color: #181825;
+  border: 2px solid #89b4fa;
+}
     '';
 
     settings = [{
-      modules-left = [
-        "custom/launcher"
-        "custom/separator"
-        "temperature"
-      ];
-
-      modules-center = [
-        "hyprland/workspaces"
-      ];
-
-      modules-right = [
-        "tray"
-        "custom/separator"
+      layer = "bottom";
+      position = "top";
+      height = 40;
+      spacing = 2;
+      exclusive = true;
+      "gtk-layer-shell" = true;
+      passthrough = false;
+      "fixed-center" = true;
+      "modules-left" = [ "hyprland/workspaces" "hyprland/window" ];
+      "modules-center" = [ "mpris" ];
+      "modules-right" = [
+        "cpu"
+        "memory"
         "pulseaudio"
-        "backlight"
-        "custom/separator"
         "clock"
+        "clock#simpleclock"
+        "tray"
+        "custom/notification"
+        "custom/power"
       ];
 
-      /* Module Configurations */
-      "battery" = {
-        format = "󰁹 {capacity}%";
-        format-charging = "󰂄 {capacity}%";
-        interval = 30;
-        states = {
-          critical = 10;
-          urgent = 5;
-          warning = 30;
-        };
-      };
+      "custom/spotify" = {
+        format = "  {}";
+        "return-type" = "json";
+        "on-click" = "playerctl -p spotify_player play-pause";
+        "on-click-right" = "hyprctl workspace 9";
+        "on-scroll-up" = "playerctl -p spotify_player next";
+        "on-scroll-down" = "playerctl -p spotify_player previous";
+      }; 
 
-      "clock" = {
-        format = "{:%I:%M:%S %p  %A %b %d}";
-        interval = 1;
-        tooltip = true;
-        tooltip-format = "{:%A; %d %B %Y}\n<tt>{calendar}</tt>";
-      };
-
-      "custom/launcher" = {
-        format = " λ";
-        "on-click" = "pkill rofi || rofi -show drun";
-        tooltip = false;
-      };
-
-      "custom/separator" = {
-        format = " │ ";
-        tooltip = false;
+      mpris = {
+        player = "spotify_player";
+        "dynamic-order" = [ "artist" "title" ];
+        format = "{player_icon} {dynamic}";
+        "format-paused" = "{status_icon} <i>{dynamic}</i>";
+        "status-icons" = { paused = ""; };
+        "player-icons" = { default = ""; };
       };
 
       "hyprland/workspaces" = {
-        "format" = "{icon}";
-        "separate-outputs" = true;
-        "format-icons" = {
-          "active" = "󱎴";
-          "default" = "󰍹";
-        };
         "on-click" = "activate";
+        format = "{id}";
+        "all-outputs" = true;
+        "disable-scroll" = false;
+        "active-only" = false;
       };
 
-      "pulseaudio" = {
+      "hyprland/window" = {
+        format = "{title}";
+      };
+
+      tray = {
+        "show-passive-items" = true;
+        spacing = 10;
+      };
+
+      "clock#simpleclock" = {
+        tooltip = false;
+        format = " {:%H:%M}";
+      };
+
+      clock = {
+        format = " {:L%a %d %b}";
+        calendar = {
+          format = {
+            days = "<span weight='normal'>{}</span>";
+            months = "<span color='#cdd6f4'><b>{}</b></span>";
+            today = "<span color='#f38ba8' weight='700'><u>{}</u></span>";
+            weekdays = "<span color='#f9e2af'><b>{}</b></span>";
+            weeks = "<span color='#a6e3a1'><b>W{}</b></span>";
+          };
+          mode = "month";
+          "mode-mon-col" = 1;
+          "on-scroll" = 1;
+        };
+        "tooltip-format" = "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>";
+      };
+
+      cpu = {
+        format = " {usage}%";
+        tooltip = true;
+        interval = 1;
+      };
+
+      memory = {
+        format = " {used:0.1f}Gi";
+      };
+
+      pulseaudio = {
         format = "{icon} {volume}%";
-        format-icons.default = [ "" "" "" ];
-        format-muted = "󰖁 Muted";
-        "on-click" = "pkill pavucontrol || pavucontrol";
-        "on-click-right" = "pamixer -t";
-        scroll-step = 1;
+        "format-muted" = "  muted";
+        "format-icons" = {
+          headphone = "";
+          default = [ " " " " " " ];
+        };
+        "on-click" = "pavucontrol";
+        "on-click-right" = "pavucontrol -t";
+      };
+
+      "custom/sep" = {
+        format = "|";
         tooltip = false;
       };
 
-      "tray" = {
-        reverse-direction = true;
+      "custom/power" = {
+        tooltip = false;
+        "on-click" = "wlogout -p layer-shell &";
+        format = "⏻";
       };
 
-      "backlight" = {
-        format = "{icon} {percent}%";
-        format-icons = [ "󰃞" "󰃝" "󰃟" "󰃞" ];
+      "custom/notification" = {
+        escape = true;
+        exec = "swaync-client -swb";
+        "exec-if" = "which swaync-client";
+        format = "{icon}";
+        "format-icons" = {
+          none = "󰅺";
+          notification = "󰡟";
+        };
+        "on-click" = "sleep 0.1 && swaync-client -t -sw";
+        "return-type" = "json";
         tooltip = false;
       };
     }];

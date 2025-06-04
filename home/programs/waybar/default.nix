@@ -53,6 +53,7 @@ window#waybar {
 #custom-spotify,
 #custom-notification,
 #cpu,
+#battery,
 #tray,
 #memory,
 #window,
@@ -93,6 +94,30 @@ window#waybar.empty #window {
   color: #74c7ec;
 }
 
+#battery {
+  color: #a6e3a1;
+}
+
+#battery.warning {
+  color: #f9e2af;
+}
+
+#battery.critical {
+  color: #f38ba8;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+  }
+}
+
 #clock.simpleclock {
   color: #89b4fa;
 }
@@ -129,8 +154,8 @@ tooltip {
       height = 40;
       spacing = 2;
       exclusive = true;
-      "gtk-layer-shell" = true;
       passthrough = false;
+      "gtk-layer-shell" = true;
       "fixed-center" = true;
       "modules-left" = [ "hyprland/workspaces" "hyprland/window" ];
       "modules-center" = [ "mpris" ];
@@ -139,6 +164,7 @@ tooltip {
         "memory"
         "pulseaudio"
         "clock"
+        "battery"
         "clock#simpleclock"
         "tray"
         "custom/notification"
@@ -148,10 +174,6 @@ tooltip {
       "custom/spotify" = {
         format = "  {}";
         "return-type" = "json";
-        "on-click" = "playerctl -p spotify_player play-pause";
-        "on-click-right" = "hyprctl workspace 9";
-        "on-scroll-up" = "playerctl -p spotify_player next";
-        "on-scroll-down" = "playerctl -p spotify_player previous";
       }; 
 
       mpris = {
@@ -161,11 +183,19 @@ tooltip {
         "format-paused" = "{status_icon} <i>{dynamic}</i>";
         "status-icons" = { paused = ""; };
         "player-icons" = { default = ""; };
+        "on-click" = "playerctl -p spotify_player play-pause";
+        "on-click-right" = "playerctl -p spotify_player next";
+        "on-scroll-up" = "hyprctl dispatch focusworkspaceoncurrentmonitor 9";
+        "on-scroll-down" = "hyprctl dispatch focusworkspaceoncurrentmonitor 1";
       };
 
       "hyprland/workspaces" = {
         "on-click" = "activate";
-        format = "{id}";
+        "format" = "{icon}";
+        "format-icons" = {
+          "8" = "";
+          "9" = "";
+        };
         "all-outputs" = true;
         "disable-scroll" = false;
         "active-only" = false;
@@ -173,6 +203,19 @@ tooltip {
 
       "hyprland/window" = {
         format = "{title}";
+      };
+
+      battery = {
+        interval = 2;
+        states = {
+          warning = 25;
+          critical = 15;
+        };
+        format = "{icon}{capacity: >3}%";
+        format-charging = " {capacity}%";
+        format-plugged = " {capacity}%";
+        format-full = " {icon}{capacity}%";
+        format-icons = [ "" "" "" "" "" ];
       };
 
       tray = {
@@ -219,8 +262,8 @@ tooltip {
           headphone = "";
           default = [ " " " " " " ];
         };
-        "on-click" = "pavucontrol";
-        "on-click-right" = "pavucontrol -t";
+        "on-click" = "pavucontrol -t 1";
+        "on-click-right" = "pamixer -t";
       };
 
       "custom/sep" = {

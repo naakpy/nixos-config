@@ -1,7 +1,6 @@
 {
   imports = [
     ./hypr
-    ./dunst
     ./waybar
     ./kitty
     ./vim

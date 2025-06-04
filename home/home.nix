@@ -63,6 +63,7 @@
     android-tools
     android-udev-rules
     nasm
+    swaynotificationcenter
     exegol
     upower
     jellyfin-media-player
@@ -133,7 +134,6 @@
 
     # Desktop Environment
     rofi-wayland
-    swww
 
     # Reverse Engineering & Analysis
     ghidra

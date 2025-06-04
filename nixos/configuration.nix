@@ -23,6 +23,8 @@
 
   programs.fish.enable = true;
 
+  
+
   hardware.flipperzero.enable = true;
   services.tlp = {
       enable = true;
@@ -65,7 +67,13 @@
     settings = {
       experimental-features = "nix-command flakes";
       flake-registry = "";
+      auto-optimise-store = true;
     };
+
+    gc.automatic = true;
+    gc.options = "--delete-older-than 3d";
+
+
     channel.enable = false;
 
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;

@@ -19,6 +19,8 @@
     misc {
       disable_splash_rendering = true
       disable_hyprland_logo = true
+      middle_click_paste = false
+      vfr = true
     }
 
     xwayland {
@@ -27,7 +29,7 @@
 
     env = GDK_BACKEND,wayland,x11,*
     env = QT_QPA_PLATFORM,wayland;xcb
-    env = SDL_VIDEODRIVER,wayland
+    env = SDL_VIDEODRIVER,wayland,x11,windows
     env = CLUTTER_BACKEND,wayland
 
     env = XDG_CURRENT_DESKTOP,Hyprland
@@ -42,14 +44,15 @@
     env = XCURSOR_SIZE,20
 
     # Autostart
-    exec-once = swww-daemon
+    exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     exec-once = hyprctl setcursor Bibata-Original-Amber 20
-    exec-once = dunst
     exec-once = nm-applet
     exec-once = gsettings set org.gnome.desktop.interface cursor-theme Bibata-Original-Amber
     exec-once = gsettings set org.gnome.desktop.interface cursor-size 20
     exec-once = waybar
     exec-once = hyprctl dispatch exec [workspace 9 silent] kitty spotify_player
+    exec-once = hyprctl dispatch exec -- '[workspace 8 silent] vesktop'
+
 
     source = /home/kaan/.config/hypr/colors
 
@@ -69,6 +72,7 @@
 
         touchpad {
             natural_scroll = false
+            middle_button_emulation = true
         }
 
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
@@ -90,7 +94,7 @@
 
     rounding = 4
     blur {
-        enabled = true
+        enabled = false
         size = 7
         passes = 4
         new_optimizations = on
@@ -135,7 +139,8 @@
 
 
     bind = $mainMod, RETURN, exec, kitty -1
-    bind = $mainMod, G, exec, librewolf 
+    bind = $mainMod, G, exec, librewolf
+    bind = $mainMod, C, exec, cursor
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,
     bind = $mainMod, V, togglefloating,
@@ -225,13 +230,25 @@
       $color15 = rgba(c3dde7ee)
   '';
 
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "/home/kaan/nixos-config/home/wallpapers/bg.jpeg"
+      ];
+      wallpaper = [
+        ",/home/kaan/nixos-config/home/wallpapers/bg.jpeg"
+      ];
+    };
+  };
+
   programs.hyprlock = {
     enable = true;
     extraConfig = ''
       # BACKGROUND
   background {
       monitor =
-      path = ~/nixos-config/home/wallpapers/wallpaper.png
+      path = ~/nixos-config/home/wallpapers/bg.jpeg
       blur_passes = 3
       contrast = 0.8916
       brightness = 0.8172

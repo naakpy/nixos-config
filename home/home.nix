@@ -52,6 +52,9 @@
     hyprcursor
     # Development Tools
     vscode
+    wl-clipboard
+    cliphist
+    blender
     wlogout
     playerctl
     proxmark3

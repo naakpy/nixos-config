@@ -57,6 +57,7 @@ window#waybar {
 #tray,
 #memory,
 #window,
+#backlight,
 #mpris {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
@@ -96,6 +97,10 @@ window#waybar.empty #window {
 
 #battery {
   color: #a6e3a1;
+}
+
+#backlight {
+  color: #f38ba8;
 }
 
 #battery.warning {
@@ -163,8 +168,9 @@ tooltip {
         "cpu"
         "memory"
         "pulseaudio"
-        "clock"
+        "backlight"
         "battery"
+        "clock"
         "clock#simpleclock"
         "tray"
         "custom/notification"
@@ -174,7 +180,13 @@ tooltip {
       "custom/spotify" = {
         format = "  {}";
         "return-type" = "json";
-      }; 
+      };
+
+      "backlight" = {
+        format = " {percent}%";
+        "on-click" = "hyprctl dispatch backlight 10+";
+        "on-click-right" = "hyprctl dispatch backlight 10-";
+      };
 
       mpris = {
         player = "spotify_player";

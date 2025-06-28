@@ -53,6 +53,8 @@
     exec-once = hyprctl dispatch exec [workspace 9 silent] kitty spotify_player
     exec-once = hyprctl dispatch exec -- '[workspace 8 silent] vesktop'
 
+    exec-once = wl-paste --type text --watch cliphist store #Stores only text data
+    exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 
     source = /home/kaan/.config/hypr/colors
 

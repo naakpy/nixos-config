@@ -67,7 +67,7 @@
     android-udev-rules
     nasm
     swaynotificationcenter
-    exegol
+    #exegol
     upower
     jellyfin-media-player
     logseq

@@ -6,7 +6,7 @@
   boot.kernelParams = [ "kvm.enable_virt_at_load=0" ]; # kernel 6.12 bug fix virtualbox
 
 
-  virtualisation.vmware.host.enable = true;
+  # virtualisation.vmware.host.enable = true;
 
   
   virtualisation.docker.enable = true;

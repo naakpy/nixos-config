@@ -52,6 +52,8 @@
     hyprcursor
     # Development Tools
     vscode
+    freerdp
+    cifs-utils
     wl-clipboard
     cliphist
     blender

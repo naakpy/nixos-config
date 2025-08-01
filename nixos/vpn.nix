@@ -21,7 +21,7 @@
     networking.wg-quick.interfaces = {
       wg0 = {
         address = [ "${config.networking.wireguard-home.clientIP}/24" ];
-        dns = [ "192.168.1.121" ];
+        dns = [ "192.168.1.249" ];
         privateKeyFile = config.networking.wireguard-home.privateKeyPath;
 
         peers = [

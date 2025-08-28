@@ -5,16 +5,16 @@
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    extraConfig = ''
+    extraConfig = let
+      isLaptop = builtins.getEnv "HOSTNAME" == "nixos-laptop";
+    in ''
 
     # Monitor
-    
+    ${if !isLaptop then ''
     monitor = DP-1, 3440x1440@144, 0x0, 1
     monitor = DP-2, 2560x1440@144, -1440x-850, 1, transform, 1
     monitor = DP-3, 2560x1440@144, 3440x-850, 1, transform, 3
-
-
-    monitor = eDP-1, 2880x1800@120, auto, 1.5
+    '' else ""}
     
     misc {
       disable_splash_rendering = true
@@ -36,8 +36,12 @@
     env = XDG_SESSION_TYPE,wayland
     env = XDG_SESSION_DESKTOP,Hyprland
 
-    env = GDK_SCALE,2
-      
+    ${if isLaptop then ''
+    # Laptop – HiDPI
+    env = GDK_SCALE,2           # scale GTK apps
+    monitor = eDP-1,2880x1800@120,auto,1.5
+    '' else ""}
+
     env = HYPRCURSOR_THEME,Bibata-Original-Amber
     env = HYPRCURSOR_SIZE,20
     env = XCURSOR_THEME,Bibata-Original-Amber
@@ -207,7 +211,6 @@
     # Move/resize windows with mainMod + LMB/RMB and dragging
     bindm = $mainMod, mouse:272, movewindow
     bindm = $mainMod, mouse:273, resizewindow
-    bindm = ALT, mouse:272, resizewindow
         '';
   };
 
